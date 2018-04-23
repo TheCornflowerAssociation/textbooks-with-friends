@@ -22,34 +22,21 @@ and open the template in the editor.
                     <xs:element name="book" minOccurs="0" maxOccurs="1">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="name" type="name"/>
-                                <xs:element name="introduction" type="xs:string"/>
-                                <xs:element name="dob" type="date"/>
-                                <xs:element name="email" type="email"/>
-                                <xs:element name="interests" minOccurs="0" maxOccurs="1">
+                                <xs:element name="isbn" type="isbn"/>
+                                <xs:element name="title" type="xs:string"/>
+                                <xs:element name="abstract" type="xs:string"/>
+                                <xs:element name="edition" type="xs:integer"/>
+                                <xs:element name="year" type="year"/>
+                                <xs:element name="category" type="xs:string"/>
+                                <xs:element name="publisher" type="xs:string"/>
+                                <xs:element name="lister" type="email"/>
+                                <xs:element name="bookCopy" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element name="interest" minOccurs="0" maxOccurs="unbounded">
-                                                <xs:complexType>
-                                                    <xs:sequence>
-                                                        <xs:element name="name" type="xs:string"/>
-                                                        <xs:element name="description" type="xs:string"/>
-                                                    </xs:sequence>
-                                                </xs:complexType>
-                                            </xs:element>
+                                            <xs:element name="condition" type="xs:string"></xs:element>
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element name="entry" maxOccurs="unbounded">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element name="date" type="date"/>
-                                <xs:element name="title" type="xs:string"/>
-                                <xs:element name="rating" type="rating"/>
-                                <xs:element name="body" type="xs:string"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
