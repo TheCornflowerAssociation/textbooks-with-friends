@@ -5,6 +5,7 @@
  */
 package cornflower.twf;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,49 +19,131 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-public class Book {
+public class Book implements Serializable {
     @XmlElement(name="bookCopy")
-    private ArrayList<Lister> bookCopies = new ArrayList<Lister>();
+    private ArrayList<BookCopy> bookCopies = new ArrayList<BookCopy>();
     
     // Fields
+    
+    @XmlElement(name = "isbn")
     private String isbn;
+    
+    @XmlElement(name = "title")
+    private String title;
+    
+    @XmlElement(name = "description")
+    private String description;
+    
+    @XmlElement(name = "edition")
+    private Integer edition;
+    
+    @XmlElement(name = "year")
+    private Integer year;
+    
+    @XmlElement(name = "category")
+    private String category;
+    
+    @XmlElement(name = "publisher")
+    private String publisher;
+    
+    @XmlElement(name = "lister")
+    private String lister;
 
     // Constructors
     public Book() {
         super();
     }
 
-    public Book(String username, String email, String password) {
-        super();
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    public Book(String isbn, String title, String description, Integer edition, Integer year, String category, String publisher, String lister) {
+        this.isbn = isbn;
+        this.title = title;
+        this.description = description;
+        this.edition = edition;
+        this.year = year;
+        this.category = category;
+        this.publisher = publisher;
+        this.lister = lister;
     }
 
+    public ArrayList<BookCopy> getBookCopies() {
+        return bookCopies;
+    }
 
-    // Getters & Setters
-    public String getUsername() {
-        return username;
+    public void setBookCopies(ArrayList<BookCopy> bookCopies) {
+        this.bookCopies = bookCopies;
     }
     
-    public String getEmail() {
-        return email;
+    public void addBookCopy(BookCopy bookCopy) {
+        bookCopies.add(bookCopy);
     }
     
-    public String getPassword() {
-        return password;
+    public void removeBookCopy(BookCopy bookCopy) {
+        bookCopies.remove(bookCopy);
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getEdition() {
+        return edition;
+    }
+
+    public void setEdition(Integer edition) {
+        this.edition = edition;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getLister() {
+        return lister;
+    }
+
+    public void setLister(String lister) {
+        this.lister = lister;
     }
     
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     
 }

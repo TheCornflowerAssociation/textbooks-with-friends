@@ -22,6 +22,10 @@ public class Users {
     
     @XmlElement(name="lister")
     private ArrayList<Lister> listers = new ArrayList<Lister>();
+    
+    public Users() {
+        super();
+    }
 
     public ArrayList<Lister> getListers() {
         return listers;

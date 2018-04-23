@@ -5,10 +5,29 @@
  */
 package cornflower.twf;
 
+import java.io.Serializable;
+
 /**
  *
  * @author J-Mo
  */
-public class BookCopy {
+public class BookCopy implements Serializable {
+    private String condition;
+
+    public BookCopy(String condition) {
+        this.condition = condition;
+    }
+    
+    public BookCopy() {
+        super();
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
     
 }

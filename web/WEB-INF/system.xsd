@@ -37,7 +37,7 @@ and open the template in the editor.
                             <xs:sequence>
                                 <xs:element name="isbn" type="isbn"/>
                                 <xs:element name="title" type="xs:string"/>
-                                <xs:element name="abstract" type="xs:string"/>
+                                <xs:element name="description" type="xs:string"/>
                                 <xs:element name="edition" type="xs:integer"/>
                                 <xs:element name="year" type="year"/>
                                 <xs:element name="category" type="xs:string"/>

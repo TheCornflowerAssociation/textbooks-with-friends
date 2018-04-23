@@ -7,17 +7,22 @@ package cornflower.twf;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.Serializable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Laurence Presland
  */
-public class System {
+
+@XmlRootElement(name = "system")
+public class System implements Serializable {
     private String usersFilePath;
     private String booksFilePath;
+    
     private Users users;
     private Books books;
     
