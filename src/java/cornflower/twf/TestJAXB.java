@@ -5,6 +5,12 @@
  */
 package cornflower.twf;
 
+import cornflower.twf.model.Book;
+import cornflower.twf.model.System;
+import cornflower.twf.model.Lister;
+import cornflower.twf.model.BookCopy;
+import cornflower.twf.model.Users;
+import cornflower.twf.model.Books;
 import java.io.Serializable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
