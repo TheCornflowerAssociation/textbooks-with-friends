@@ -5,10 +5,46 @@
  */
 package cornflower.twf;
 
+import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author J-Mo
  */
+
+@XmlRootElement(name="users")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Users {
     
+    @XmlElement(name="lister")
+    private ArrayList<Lister> listers = new ArrayList<Lister>();
+
+    public ArrayList<Lister> getListers() {
+        return listers;
+    }
+    public boolean userExists(String email) {
+        for (Lister lister : listers) {
+            if (lister.getEmail().equals(email))
+                return true;
+        }
+        return false;
+    }
+    public void addUser(Lister lister) {
+        listers.add(lister);
+    }
+    public void removeUser(Lister user) {
+        listers.remove(user);
+    }
+    public Lister login(String email, String password) {
+        // For each user in the list...
+        for (Lister lister : listers) {
+            if (lister.getEmail().equals(email) && lister.getPassword().equals(password))
+                return lister; // Login correct. Return this user.
+        }
+        return null; // Login incorrect. Return null.
+    }
 }

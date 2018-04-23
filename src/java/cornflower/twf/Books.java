@@ -5,10 +5,33 @@
  */
 package cornflower.twf;
 
+import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author J-Mo
  */
+
+@XmlRootElement(name="books")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Books {
     
+    @XmlElement(name="book")
+    private ArrayList<Book> books = new ArrayList<Book>();
+
+    public ArrayList<Book> getListers() {
+        return listers;
+    }
+    
+    public void addBook(Book book) {
+        books.add(book);
+    }
+    
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
 }
