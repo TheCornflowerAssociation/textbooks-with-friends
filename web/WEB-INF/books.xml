@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<books>
+    <book>
+        <bookCopy>
+            <condition>good</condition>
+        </bookCopy>
+        <isbn>978-3-16-148410-0</isbn>
+        <title>Star Wars</title>
+        <description>When bilbo becomes an orphan, he is recruited to hogwarts.</description>
+        <edition>5</edition>
+        <year>2015</year>
+        <category>Fantasy</category>
+        <publisher>Penguin Books</publisher>
+        <lister>laurencepresland@gmail.com</lister>
+    </book>
+    <book>
+        <bookCopy>
+            <condition>good</condition>
+        </bookCopy>
+        <isbn>978-3-16-148410-0</isbn>
+        <title>Star Wars</title>
+        <description>When bilbo becomes an orphan, he is recruited to hogwarts.</description>
+        <edition>5</edition>
+        <year>2015</year>
+        <category>Fantasy</category>
+        <publisher>Penguin Books</publisher>
+        <lister>laurencepresland@gmail.com</lister>
+    </book>
+</books>
