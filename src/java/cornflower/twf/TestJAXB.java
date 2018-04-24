@@ -6,7 +6,7 @@
 package cornflower.twf;
 
 import cornflower.twf.model.Book;
-import cornflower.twf.model.System;
+import cornflower.twf.model.TextbookSystem;
 import cornflower.twf.model.Lister;
 import cornflower.twf.model.BookCopy;
 import cornflower.twf.model.Users;
@@ -37,13 +37,13 @@ public class TestJAXB implements Serializable {
   shelf.AddBook(starWars);
   users.addUser(laurence);
   
-  System system = new System();
+  TextbookSystem system = new TextbookSystem();
   
   system.setUsers(users);
-  system.setBooks(shelf);
+//  system.setBooks(shelf);
   
   // Boilerplate code to convert objects to XML...
-  JAXBContext jc = JAXBContext.newInstance(System.class);
+  JAXBContext jc = JAXBContext.newInstance(TextbookSystem.class);
   Marshaller m = jc.createMarshaller();
   m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
   m.marshal(system, java.lang.System.out);

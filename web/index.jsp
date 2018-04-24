@@ -4,6 +4,8 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.model.Book"%>
+<%@page import="cornflower.twf.model.Books"%>
 <%@page import="cornflower.twf.model.Lister"%>
 <%@page import="cornflower.twf.model.Users"%>
 <%@page import="cornflower.twf.utils.ActionController"%>
@@ -13,9 +15,13 @@
     ActionController ac = new ActionController(application);
     
     Users users = ac.getUsers();
+    Books books = ac.getBooks();
     
-    users.addUser(new Lister("Toblo", "tob@lo.com", "password"));
-    ac.saveUsers(users);
+//    Lister lis = users.getListers().get(0);
+
+//    users.addUser(new Lister("Dan", "dan@dan.dan", "password"));
+//    users.removeUser(lis);
+//    ac.commitUserData(users);
 %>
 <html>
     <head>
@@ -23,13 +29,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1><%= users.getListers() %></h1>
+        <h1>All Listers (<%= users.getListers().size() %>)</h1>
         <% for (Lister l : users.getListers()) {
         
             %>
             <p><%= l.getUsername()%></p>
             <p><%= l.getEmail()%></p>
             <p><%= l.getPassword()%></p>
+        <%
+        
+        } %>
+        
+        <h1>All Books (<%= books.getBooks().size() %>)</h1>
+        <% for (Book b : books.getBooks()) {
+        
+            %>
+            <p><%= b.getTitle() %></p>
+            <p><%= b.getDescription() %></p>
         <%
         
         } %>

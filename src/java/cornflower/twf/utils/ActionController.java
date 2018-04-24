@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 package cornflower.twf.utils;
-
 import cornflower.twf.model.Books;
 import cornflower.twf.model.Users;
 import javax.servlet.ServletContext;
-import cornflower.twf.model.System;
+import cornflower.twf.model.TextbookSystem;
 
 /**
  *
@@ -17,24 +16,26 @@ import cornflower.twf.model.System;
 public class ActionController {
     
     private ServletContext application;
-    private String usersFilePath;
-    private String booksFilePath;
-    
-    private System system;
+    private TextbookSystem system;
     
     public ActionController(ServletContext application) throws Exception {
         this.application = application;
-        this.usersFilePath = application.getRealPath("WEB-INF/users.xml");
-//        this.booksFilePath = application.getRealPath("WEB-INF/books.xml");
-        this.system = new System();
-        system.setFilePath(usersFilePath, booksFilePath);
+        String usersFilePath = application.getRealPath("WEB-INF/users.xml");
+        String booksFilePath = application.getRealPath("WEB-INF/books.xml");
+        this.system = new TextbookSystem(usersFilePath, booksFilePath);
+        system.updateFields();
     }
     
     public Users getUsers() {
         return system.getUsers();
     }
     
-    public void saveUsers(Users users) throws Exception {
-        system.updateXML(users);
+    public Books getBooks() {
+        return system.getBooks();
+    }
+    
+    public void commitUserData(Users users) throws Exception {
+        system.setUsers(users);
+        system.updateXml();
     }
 }

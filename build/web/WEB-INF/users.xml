@@ -1,13 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
-    <user>
-        <email>meme@meme.com</email>
-        <username>Meme Man</username>
-        <password>meme</password>
-    </user>
-    <user>
-        <email>laurencepresland@gmail.com</email>
-        <username>PreslandBoy</username>
-        <password>jeans</password>
-    </user>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
+    <lister>
+        <username>Dan</username>
+        <email>dan@dan.dan</email>
+        <password>password</password>
+    </lister>
 </users>

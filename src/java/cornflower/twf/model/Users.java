@@ -40,8 +40,8 @@ public class Users {
     public void addUser(Lister lister) {
         listers.add(lister);
     }
-    public void removeUser(Lister user) {
-        listers.remove(user);
+    public void removeUser(Lister lister) {
+        listers.remove(lister);
     }
     public Lister login(String email, String password) {
         // For each user in the list...
