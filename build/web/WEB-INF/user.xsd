@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.uts.edu.au/31284/wsd-diary"
+        xmlns="http://www.uts.edu.au/31284/wsd-diary"
+        elementFormDefault="qualified">
+ 
+        <!-- Insert your type declarations here -->
+        <xs:simpleType name="email">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Za-z\._]+@[a-z\-]+(\.[a-z\-]+)+"/>
+            </xs:restriction>
+        </xs:simpleType>
+        
+        <!-- Insert your element declarations here -->
+        <xs:element name="users">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="lister" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="firstName" type="xs:string"/>
+                                <xs:element name="lastName" type="xs:string"/>
+                                <xs:element name="username" type="xs:string"/>
+                                <xs:element name="email" type="email"/>
+                                <xs:element name="password" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+ 
+    </xs:schema>
+</xs:schema>

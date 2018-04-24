@@ -25,7 +25,7 @@ public class ActionController {
     public ActionController(ServletContext application) throws Exception {
         this.application = application;
         this.usersFilePath = application.getRealPath("WEB-INF/users.xml");
-        this.booksFilePath = application.getRealPath("WEB-INF/books.xml");
+//        this.booksFilePath = application.getRealPath("WEB-INF/books.xml");
         this.system = new System();
         system.setFilePath(usersFilePath, booksFilePath);
     }
@@ -34,7 +34,7 @@ public class ActionController {
         return system.getUsers();
     }
     
-    public Books getBooks() {
-        return system.getBooks();
+    public void saveUsers(Users users) throws Exception {
+        system.updateXML(users);
     }
 }
