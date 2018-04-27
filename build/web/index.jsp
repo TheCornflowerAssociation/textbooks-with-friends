@@ -13,41 +13,29 @@
 <!DOCTYPE html>
 <% 
     ActionController ac = new ActionController(application);
-    
-    Users users = ac.getUsers();
     Books books = ac.getBooks();
-    
-//    Lister lis = users.getListers().get(0);
-
-//    users.addUser(new Lister("Dan", "dan@dan.dan", "password"));
-//    users.removeUser(lis);
-//    ac.commitUserData(users);
 %>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+    <%@include file="layouts/header.html" %>
     <body>
-        <h1>All Listers (<%= users.getListers().size() %>)</h1>
-        <% for (Lister l : users.getListers()) {
-        
-            %>
-            <p><%= l.getUsername()%></p>
-            <p><%= l.getEmail()%></p>
-            <p><%= l.getPassword()%></p>
-        <%
-        
-        } %>
-        
-        <h1>All Books (<%= books.getBooks().size() %>)</h1>
-        <% for (Book b : books.getBooks()) {
-        
-            %>
-            <p><%= b.getTitle() %></p>
-            <p><%= b.getDescription() %></p>
-        <%
-        
-        } %>
+        <%@include file="layouts/navbar.jsp" %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="text-center">All Books (<%= books.getBooks().size() %>)</h2>
+                    <br>
+                    <%@include file="partials/bookListPartial.jsp" %>
+                </div>
+                <div class="col-md-6">
+                    <%@include file="partials/bookPartial.jsp" %>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
