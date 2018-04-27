@@ -37,6 +37,7 @@ and open the template in the editor.
                             <xs:sequence>
                                 <xs:element name="isbn" type="isbn"/>
                                 <xs:element name="title" type="xs:string"/>
+                                <xs:element name="author" type="xs:string"/>
                                 <xs:element name="description" type="xs:string"/>
                                 <xs:element name="edition" type="xs:integer"/>
                                 <xs:element name="year" type="year"/>
@@ -46,7 +47,9 @@ and open the template in the editor.
                                 <xs:element name="bookCopy" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element name="condition" type="xs:string"></xs:element>
+                                            <xs:element name="id" type="xs:integer"/>
+                                            <xs:element name="condition" type="xs:string"/>
+                                            <xs:element name="reserved" type="xs:boolean"/>
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>

@@ -6,20 +6,37 @@
 package cornflower.twf.model;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author J-Mo
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class BookCopy implements Serializable {
+    private int id;
     private String condition;
+    private boolean reserved;
 
-    public BookCopy(String condition) {
+    public BookCopy(int id, String condition, boolean reserved) {
+        this.id = id;
         this.condition = condition;
+        this.reserved = reserved;
     }
     
     public BookCopy() {
         super();
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public boolean isReserved() {
+        return reserved;
     }
 
     public String getCondition() {
@@ -28,6 +45,10 @@ public class BookCopy implements Serializable {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+    
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
     }
     
 }

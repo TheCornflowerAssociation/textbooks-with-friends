@@ -48,15 +48,19 @@ public class Book implements Serializable {
     
     @XmlElement(name = "lister")
     private String lister;
+    
+    @XmlElement(name = "author")
+    private String author;
 
     // Constructors
     public Book() {
         super();
     }
 
-    public Book(String isbn, String title, String description, Integer edition, Integer year, String category, String publisher, String lister) {
+    public Book(String isbn, String title, String author, String description, Integer edition, Integer year, String category, String publisher, String lister) {
         this.isbn = isbn;
         this.title = title;
+        this.author = author;
         this.description = description;
         this.edition = edition;
         this.year = year;
@@ -91,6 +95,10 @@ public class Book implements Serializable {
 
     public String getTitle() {
         return title;
+    }
+    
+    public String getAuthor() {
+        return author;
     }
 
     public void setTitle(String title) {
@@ -145,5 +153,13 @@ public class Book implements Serializable {
         this.lister = lister;
     }
     
+    public BookCopy getBookCopy(int id) {
+        for (BookCopy copy : bookCopies) {
+            if (copy.getId() == id) {
+                return copy;
+            }
+        }
+        return null;
+    }
     
 }

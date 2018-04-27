@@ -38,4 +38,9 @@ public class ActionController {
         system.setUsers(users);
         system.updateXml();
     }
+    
+    public void commitBookData(Books books) throws Exception {
+        system.setBooks(books);
+        system.updateXml();
+    }
 }

@@ -22,9 +22,9 @@ import javax.xml.bind.Marshaller;
 public class TestJAXB implements Serializable {
     public static void main(String[] args) throws Exception {
   
-  BookCopy bookCopy = new BookCopy("good");
+  BookCopy bookCopy = new BookCopy(1, "good", true);
   
-  Book starWars = new Book("978-3-16-148410-0", "Star Wars", "When bilbo becomes an orphan, he is recruited to hogwarts.", 5, 2015, "Fantasy", "Penguin Books", "laurencepresland@gmail.com");
+  Book starWars = new Book("978-3-16-148410-0", "Star Wars", "George R. R. Martin", "When bilbo becomes an orphan, he is recruited to hogwarts.", 5, 2015, "Fantasy", "Penguin Books", "laurencepresland@gmail.com");
   
   Books shelf = new Books();
   

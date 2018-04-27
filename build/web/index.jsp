@@ -22,13 +22,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        </div>
-                    </div>
-                    <br>
-                    <h2 class="text-center">All Books (<%= books.getBooks().size() %>)</h2>
                     <br>
                     <%@include file="partials/bookListPartial.jsp" %>
                 </div>
