@@ -4,14 +4,27 @@
     Author     : J-Mo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@page import="cornflower.twf.utils.ActionController"%>
+<%@page import="cornflower.twf.model.Lister"%>
+<%@page import="cornflower.twf.model.Users"%>
+
+<% 
+    ActionController ac = new ActionController(application);
+    Users users = ac.getUsers();
+    
+    String email = request.getParameter("email");
+    String password = request.getParameter("password");
+    
+    Lister lister = users.login(email, password);
+    System.out.print(lister);
+    
+    if (lister != null) {
+        System.out.print("lister not null");
+        session.setAttribute("lister", lister);
+        response.sendRedirect("../index.jsp");
+    }
+    else {
+        System.out.print("lister null");
+        response.sendRedirect("../index.jsp");
+    }
+%>

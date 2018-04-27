@@ -20,15 +20,19 @@
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#">PreslandBoy</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Logout</a>
-        </li>
+        <%  Lister lister = (Lister) session.getAttribute("lister");
+            if (lister != null) {
+                System.out.print("found in session");
+        %>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><%= lister.getUsername() %></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="actions/logoutAction.jsp">Logout</a>
+            </li>
+        <%  } else { %>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal">Login</button>
+        <%  } %>
     </ul>
 </nav>
 <br>

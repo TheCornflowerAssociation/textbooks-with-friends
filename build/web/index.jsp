@@ -17,7 +17,7 @@
 %>
 <html>
     <%@include file="layouts/header.html" %>
-    <body>
+    <body style="background-color: #f2f2f2">
         <%@include file="layouts/navbar.jsp" %>
         <div class="container">
             <div class="row">
@@ -37,5 +37,6 @@
                 </div>
             </div>
         </div>
+        <%@include file="modals/loginModal.jsp" %>
     </body>
 </html>
