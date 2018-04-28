@@ -12,7 +12,8 @@
 <div class="card">
     <h4 class="card-header"><%= book.getTitle() %></h4>
     <div class="card-body">
-        <h5 class="card-title"><%= book.getAuthor() %></h5>
+        <h5 class="card-title">by <%= book.getAuthor() %> | <span class="badge badge-primary"><%= book.getCategory() %></span></h5>
+        <p class="card-text"><b>ISBN:</b> <%= book.getIsbn() %></p>
         <p class="card-text"><b>Description:</b> <%= book.getDescription() %></p>
         <br>
         <table class="table">
@@ -20,7 +21,11 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Condition</th>
-                    <th scope="col">Reservation Status</th>
+                    <th scope="col">Edition</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Lister</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,13 +33,31 @@
                     for (BookCopy copy : book.getBookCopies()) {
                 %>
                 <tr>
-                    <th scope="row">1</th>
+                    <th><%= copy.getId() %></th>
                     <td><%= copy.getCondition() %></td>
+                    <td><%= copy.getEdition() %></td>
+                    <td><%= copy.getPublisher() %></td>
+                    <td><%= copy.getYear() %></td>
                     <% if (copy.isReserved()) { %>
-                        <td><a class="btn btn-default disabled">Reserved</a></td>
+                        <td>
+                            <button type="submit" name="submit" class="btn btn-primary disabled">Reserved</button>
+                        </td>
                     <% } else { %>
-                        <td><a href="#" class="btn btn-default">Reserve this Book</a></td>
-                    <% } %>
+                        <% if (session.getAttribute("lister") != null) { %>
+                            <td>
+                                <form action="actions/reserveAction.jsp" method="post">
+                                    <input type="hidden" name="isbn" value="<%=  book.getIsbn() %>">
+                                    <input type="hidden" name="copyId" value="<%= copy.getId() %>">
+                                    <button type="submit" name="submit" class="btn btn-primary">Reserve this Book</button>
+                                </form>
+                            </td>
+                        <% } else { %>
+                            <td>
+                                <button type="submit" name="submit" class="btn btn-primary disabled">Login to reserve this book</button>
+                            </td>   
+                        <% } 
+                    } %>
+                    <td><%= copy.getLister() %></td>
                 </tr>
                 <%
                     }

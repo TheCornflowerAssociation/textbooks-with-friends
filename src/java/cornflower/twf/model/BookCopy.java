@@ -20,11 +20,19 @@ public class BookCopy implements Serializable {
     private int id;
     private String condition;
     private boolean reserved;
+    private int edition;
+    private int year;
+    private String publisher;
+    private String lister;
 
-    public BookCopy(int id, String condition, boolean reserved) {
+    public BookCopy(int id, String condition, boolean reserved, int edition, int year, String publisher, String lister) {
         this.id = id;
         this.condition = condition;
         this.reserved = reserved;
+        this.edition = edition;
+        this.year = year;
+        this.publisher = publisher;
+        this.lister = lister;
     }
     
     public BookCopy() {
@@ -49,6 +57,38 @@ public class BookCopy implements Serializable {
     
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
+    }
+    
+    public Integer getEdition() {
+        return edition;
+    }
+
+    public void setEdition(Integer edition) {
+        this.edition = edition;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+    
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getLister() {
+        return lister;
+    }
+
+    public void setLister(String lister) {
+        this.lister = lister;
     }
     
 }

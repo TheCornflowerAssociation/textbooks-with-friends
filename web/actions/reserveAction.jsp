@@ -11,9 +11,23 @@
 <%
     ActionController ac = new ActionController(application);
     Books books = ac.getBooks();
-    Book book = books.getBook(request.getParameter("isbn"));
-    BookCopy bookCopy = book.getBookCopy(Integer.parseInt(request.getParameter("copyId")));
+    
+    
+    String isbn = request.getParameter("isbn");
+    Book book = books.getBook(isbn);
+    
+    
+    int copyId = Integer.parseInt(request.getParameter("copyId"));
+    BookCopy bookCopy = book.getBookCopy(copyId);
+    
+    
     bookCopy.setReserved(true);
+    
+    
+    book.setBookCopy(copyId, bookCopy);
+    books.setBook(isbn, book);
     ac.commitBookData(books);
+    
+    
     response.sendRedirect("../index.jsp");
 %>

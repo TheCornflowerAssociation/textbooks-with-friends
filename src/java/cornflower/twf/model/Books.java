@@ -33,10 +33,18 @@ public class Books implements Serializable {
         return null;
     }
     
+    public void setBook(String isbn, Book newBook) {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                book = newBook;
+            }
+        }
+    }
+    
     public ArrayList<Book> getBooksByLister(String email) {
         ArrayList<Book> matchingBooks = new ArrayList<>();
         for (Book book : books) {
-            if (book.getLister().equals(email)) {
+            if (book.hasLister(email)) {
                 matchingBooks.add(book);
             }
         }

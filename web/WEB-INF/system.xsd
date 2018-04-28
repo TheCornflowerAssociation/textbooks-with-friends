@@ -39,17 +39,17 @@ and open the template in the editor.
                                 <xs:element name="title" type="xs:string"/>
                                 <xs:element name="author" type="xs:string"/>
                                 <xs:element name="description" type="xs:string"/>
-                                <xs:element name="edition" type="xs:integer"/>
-                                <xs:element name="year" type="year"/>
                                 <xs:element name="category" type="xs:string"/>
-                                <xs:element name="publisher" type="xs:string"/>
-                                <xs:element name="lister" type="email"/>
                                 <xs:element name="bookCopy" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
                                             <xs:element name="id" type="xs:integer"/>
                                             <xs:element name="condition" type="xs:string"/>
                                             <xs:element name="reserved" type="xs:boolean"/>
+                                            <xs:element name="lister" type="email"/>
+                                            <xs:element name="edition" type="xs:integer"/>
+                                            <xs:element name="publisher" type="xs:string"/>
+                                            <xs:element name="year" type="year"/>
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>

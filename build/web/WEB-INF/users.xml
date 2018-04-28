@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <lister>
-        <email>meme@meme.com</email>
         <username>Meme Man</username>
+        <email>meme@meme.com</email>
         <password>meme</password>
     </lister>
     <lister>
-        <email>laurencepresland@gmail.com</email>
         <username>PreslandBoy</username>
+        <email>laurencepresland@gmail.com</email>
         <password>jeans</password>
     </lister>
 </users>

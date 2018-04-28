@@ -26,8 +26,10 @@
         <ul class="list-group list-group-flush">
             <% for (Book b : booksList) { %>
                 <li class="list-group-item">
-                    <a href="index.jsp?<%= hasSelfListingFilter ? "myListings" : "" %>&isbn=<%= b.getIsbn() %>"><h3><%= b.getTitle() %></h3></a>
-                    <p>by <%= b.getAuthor() %></p>
+                    <a href="index.jsp?<%= hasSelfListingFilter ? "myListings" : "" %>&isbn=<%= b.getIsbn() %>">
+                        <h5><%= b.getTitle() %></h5>
+                    </a>
+                    <p>by <%= b.getAuthor() %> | <span class="badge badge-primary"><%= b.getCategory() %></span></p>
                 </li>
             <% } %>
         </ul>

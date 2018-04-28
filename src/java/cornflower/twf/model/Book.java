@@ -24,49 +24,23 @@ public class Book implements Serializable {
     private ArrayList<BookCopy> bookCopies = new ArrayList<BookCopy>();
     
     // Fields
-    
-    @XmlElement(name = "isbn")
     private String isbn;
-    
-    @XmlElement(name = "title")
     private String title;
-    
-    @XmlElement(name = "description")
     private String description;
-    
-    @XmlElement(name = "edition")
-    private Integer edition;
-    
-    @XmlElement(name = "year")
-    private Integer year;
-    
-    @XmlElement(name = "category")
-    private String category;
-    
-    @XmlElement(name = "publisher")
-    private String publisher;
-    
-    @XmlElement(name = "lister")
-    private String lister;
-    
-    @XmlElement(name = "author")
     private String author;
+    private String category;
 
     // Constructors
     public Book() {
         super();
     }
 
-    public Book(String isbn, String title, String author, String description, Integer edition, Integer year, String category, String publisher, String lister) {
+    public Book(String isbn, String title, String author, String description, String category) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.description = description;
-        this.edition = edition;
-        this.year = year;
         this.category = category;
-        this.publisher = publisher;
-        this.lister = lister;
     }
 
     public ArrayList<BookCopy> getBookCopies() {
@@ -113,21 +87,7 @@ public class Book implements Serializable {
         this.description = description;
     }
 
-    public Integer getEdition() {
-        return edition;
-    }
-
-    public void setEdition(Integer edition) {
-        this.edition = edition;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
+    
 
     public String getCategory() {
         return category;
@@ -135,22 +95,6 @@ public class Book implements Serializable {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public String getLister() {
-        return lister;
-    }
-
-    public void setLister(String lister) {
-        this.lister = lister;
     }
     
     public BookCopy getBookCopy(int id) {
@@ -160,6 +104,23 @@ public class Book implements Serializable {
             }
         }
         return null;
+    }
+    
+    public void setBookCopy(int id, BookCopy newCopy) {
+        for (BookCopy copy : bookCopies) {
+            if (copy.getId() == id) {
+                copy = newCopy;
+            }
+        }
+    }
+
+    boolean hasLister(String email) {
+        for (BookCopy copy : bookCopies) {
+            if (copy.getLister().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }

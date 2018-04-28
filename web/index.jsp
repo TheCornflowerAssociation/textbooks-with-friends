@@ -19,13 +19,13 @@
     <%@include file="layouts/header.html" %>
     <body style="background-color: #f2f2f2">
         <%@include file="layouts/navbar.jsp" %>
-        <div class="container">
+        <div style="margin-left: 5%; margin-right: 5%;">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <br>
                     <%@include file="partials/bookListPartial.jsp" %>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-9">
                     <%@include file="partials/bookPartial.jsp" %>
                 </div>
             </div>
