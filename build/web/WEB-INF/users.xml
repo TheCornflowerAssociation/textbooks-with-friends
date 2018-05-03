@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<users>
+<?xml version="1.0" encoding="UTF-8"?>
+<users 
+  xmlns="http://www.uts.edu.au/31284/textbooks"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.uts.edu.au/31284/textbooks users.xsd">
     <lister>
-        <username>Meme Man</username>
         <email>meme@meme.com</email>
+        <username>Meme Man</username>
         <password>meme</password>
     </lister>
     <lister>
-        <username>PreslandBoy</username>
         <email>laurencepresland@gmail.com</email>
+        <username>PreslandBoy</username>
         <password>jeans</password>
     </lister>
 </users>
