@@ -22,7 +22,8 @@ public class ActionController {
         this.application = application;
         String usersFilePath = application.getRealPath("WEB-INF/users.xml");
         String booksFilePath = application.getRealPath("WEB-INF/books.xml");
-        this.system = new TextbookSystem(usersFilePath, booksFilePath);
+        String reservationsFilePath = application.getRealPath("WEB-INF/reservations.xml");
+        this.system = new TextbookSystem(usersFilePath, booksFilePath, reservationsFilePath);
         system.updateFields();
     }
     

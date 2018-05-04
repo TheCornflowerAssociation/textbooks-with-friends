@@ -24,6 +24,14 @@ public class Books implements Serializable {
     @XmlElement(name="book")
     private ArrayList<Book> books = new ArrayList<Book>();
     
+    public Books() {
+        super();
+    }
+    
+    public Books(ArrayList<Book> books) {
+        this.books = books;
+    }
+    
     public Book getBook(String isbn) {
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {

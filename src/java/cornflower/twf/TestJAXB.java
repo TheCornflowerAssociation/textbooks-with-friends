@@ -11,6 +11,8 @@ import cornflower.twf.model.Lister;
 import cornflower.twf.model.BookCopy;
 import cornflower.twf.model.Users;
 import cornflower.twf.model.Books;
+import cornflower.twf.model.Reservation;
+import cornflower.twf.model.Reservations;
 import java.io.Serializable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -28,6 +30,12 @@ public class TestJAXB implements Serializable {
   
   Books shelf = new Books();
   
+  Reservations reservations = new Reservations();
+  
+  Reservation newReservation = new Reservation(1, "PreslandBoy", 1);
+  
+  reservations.addReservation(newReservation);
+  
   Lister laurence = new Lister("PreslandBoy", "laurencepresland@gmail.com", "corn");
   
   Users users = new Users();
@@ -40,7 +48,8 @@ public class TestJAXB implements Serializable {
   TextbookSystem system = new TextbookSystem();
   
   system.setUsers(users);
-//  system.setBooks(shelf);
+  system.setBooks(shelf);
+  system.setReservations(reservations);
   
   // Boilerplate code to convert objects to XML...
   JAXBContext jc = JAXBContext.newInstance(TextbookSystem.class);
