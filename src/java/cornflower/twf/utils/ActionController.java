@@ -49,4 +49,9 @@ public class ActionController {
         system.setBooks(books);
         system.updateXml();
     }
+    
+    public void commitReservationData(Reservations reservations) throws Exception {
+        system.setReservations(reservations);
+        system.updateXml();
+    }
 }
