@@ -41,6 +41,7 @@ public class TextbookSystem implements Serializable {
     }
     
     public TextbookSystem(String usersFilePath, String booksFilePath, String reservationsFilePath) {
+        super();
         this.usersFilePath = usersFilePath;
         this.booksFilePath = booksFilePath;
         this.reservationsFilePath = reservationsFilePath;
@@ -83,13 +84,13 @@ public class TextbookSystem implements Serializable {
         booksMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         reservationsMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         
-        FileOutputStream usersOutputStream = new FileOutputStream(usersFilePath);
-        FileOutputStream booksOutputStream = new FileOutputStream(booksFilePath);
-        FileOutputStream reservationsOutputStream = new FileOutputStream(reservationsFilePath);
+        FileOutputStream usersOutputStream = new FileOutputStream(this.usersFilePath);
+        FileOutputStream booksOutputStream = new FileOutputStream(this.booksFilePath);
+        FileOutputStream reservationsOutputStream = new FileOutputStream(this.reservationsFilePath);
         
-        usersMarshaller.marshal(users, usersOutputStream);
-        booksMarshaller.marshal(books, booksOutputStream);
-        reservationsMarshaller.marshal(reservations, reservationsOutputStream);
+        usersMarshaller.marshal(this.users, usersOutputStream);
+        booksMarshaller.marshal(this.books, booksOutputStream);
+        reservationsMarshaller.marshal(this.reservations, reservationsOutputStream);
         
         usersOutputStream.close();
         booksOutputStream.close();

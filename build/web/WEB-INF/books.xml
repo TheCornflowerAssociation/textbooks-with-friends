@@ -6,10 +6,9 @@ and open the template in the editor.
 -->
 
 
-<books 
-  xmlns="http://www.uts.edu.au/31284/textbooks"
+<books
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.uts.edu.au/31284/textbooks books.xsd">
+  xsi:schemaLocation="books.xsd">
     <book>
         <isbn>978-3-16-158410-0</isbn>
         <title>Star Wars</title>

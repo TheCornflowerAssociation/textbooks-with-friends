@@ -5,10 +5,12 @@
  */
 package cornflower.twf.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -17,8 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement(name="users")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Users {
+public class Users implements Serializable {
     
     @XmlElement(name="lister")
     private ArrayList<Lister> listers = new ArrayList<Lister>();

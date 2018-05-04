@@ -16,8 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author J-Mo
  */
 
-@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Lister implements Serializable {
     // Fields
     
