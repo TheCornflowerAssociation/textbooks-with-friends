@@ -5,6 +5,7 @@
  */
 package cornflower.twf.utils;
 import cornflower.twf.model.Books;
+import cornflower.twf.model.Reservations;
 import cornflower.twf.model.Users;
 import javax.servlet.ServletContext;
 import cornflower.twf.model.TextbookSystem;
@@ -33,6 +34,10 @@ public class ActionController {
     
     public Books getBooks() {
         return system.getBooks();
+    }
+    
+    public Reservations getReservations() {
+        return system.getReservations();
     }
     
     public void commitUserData(Users users) throws Exception {
