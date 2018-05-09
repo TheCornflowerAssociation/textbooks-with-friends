@@ -91,4 +91,8 @@ public class BookCopy implements Serializable {
         this.lister = lister;
     }
     
+    boolean hasLister(String email) {
+        return lister.equals(email);
+    }
+    
 }

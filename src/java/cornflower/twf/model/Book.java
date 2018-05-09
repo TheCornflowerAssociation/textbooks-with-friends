@@ -46,6 +46,16 @@ public class Book implements Serializable {
     public ArrayList<BookCopy> getBookCopies() {
         return bookCopies;
     }
+    
+    public ArrayList<BookCopy> getCopiesByLister(String email) {
+        ArrayList<BookCopy> matchingCopies = new ArrayList<>();
+        for (BookCopy copy : bookCopies) {
+            if (copy.hasLister(email)) {
+                matchingCopies.add(copy);
+            }
+        }
+        return matchingCopies;
+    }
 
     public void setBookCopies(ArrayList<BookCopy> bookCopies) {
         this.bookCopies = bookCopies;

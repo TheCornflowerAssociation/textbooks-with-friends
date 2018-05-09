@@ -16,7 +16,7 @@
     Books books = ac.getBooks();
 %>
 <html>
-    <%@include file="layouts/header.html" %>
+    <%@include file="layouts/header.jsp" %>
     <body style="background-color: #f2f2f2">
         <%@include file="layouts/navbar.jsp" %>
         <div style="margin-left: 5%; margin-right: 5%;">

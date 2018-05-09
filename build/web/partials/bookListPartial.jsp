@@ -5,12 +5,11 @@
 --%>
 <%@page import="java.util.ArrayList"%>
 <% 
-    boolean hasSelfListingFilter = request.getParameter("myListings") != null;
     ArrayList<Book> booksList;
 %>
 <h2 class="text-center">
     <% if (hasSelfListingFilter) {
-        booksList = books.getBooksByLister(((Lister)session.getAttribute("lister")).getEmail());
+        booksList = books.getBooksByLister(currentUser.getEmail());
     %>
         <span>My Listings </span>
     <% } else {

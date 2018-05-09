@@ -3,11 +3,21 @@
     Created on : 23/04/2018, 12:49:55 PM
     Author     : J-Mo
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <% 
     Book book = books.getBook(request.getParameter("isbn"));
     
     if (book != null) {
+        
+        ArrayList<BookCopy> copies;
+        
+        if (hasSelfListingFilter) {
+            copies = book.getCopiesByLister(currentUser.getEmail());
+        }
+        else {
+            copies = book.getBookCopies();
+        }
 %>
 <div class="card">
     <h4 class="card-header"><%= book.getTitle() %></h4>
@@ -30,7 +40,7 @@
             </thead>
             <tbody>
                 <%
-                    for (BookCopy copy : book.getBookCopies()) {
+                    for (BookCopy copy : copies) {
                 %>
                 <tr>
                     <th><%= copy.getId() %></th>
