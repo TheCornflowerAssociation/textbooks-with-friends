@@ -58,6 +58,17 @@ public class Books implements Serializable {
         }
         return matchingBooks;
     }
+    
+    
+    public ArrayList<Book> getUnreservedBooks(Reservations reservations) {
+        ArrayList<Book> matchingBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.hasUnreserved(reservations)) {
+                matchingBooks.add(book);
+            }
+        }
+        return matchingBooks;
+    }
 
     public void setBooks(ArrayList<Book> books) {
         this.books = books;

@@ -19,16 +19,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class BookCopy implements Serializable {
     private int id;
     private String condition;
-    private boolean reserved;
     private int edition;
     private int year;
     private String publisher;
     private String lister;
 
-    public BookCopy(int id, String condition, boolean reserved, int edition, int year, String publisher, String lister) {
+    public BookCopy(int id, String condition, int edition, int year, String publisher, String lister) {
         this.id = id;
         this.condition = condition;
-        this.reserved = reserved;
         this.edition = edition;
         this.year = year;
         this.publisher = publisher;
@@ -42,10 +40,6 @@ public class BookCopy implements Serializable {
     public int getId() {
         return id;
     }
-    
-    public boolean isReserved() {
-        return reserved;
-    }
 
     public String getCondition() {
         return condition;
@@ -53,10 +47,6 @@ public class BookCopy implements Serializable {
 
     public void setCondition(String condition) {
         this.condition = condition;
-    }
-    
-    public void setReserved(boolean reserved) {
-        this.reserved = reserved;
     }
     
     public Integer getEdition() {

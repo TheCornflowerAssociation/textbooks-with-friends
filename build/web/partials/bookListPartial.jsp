@@ -8,10 +8,14 @@
     ArrayList<Book> booksList;
 %>
 <h2 class="text-center">
-    <% if (hasSelfListingFilter) {
+    <% if (currentUser != null && filter != null && filter.equals("myListings")) {
         booksList = books.getBooksByLister(currentUser.getEmail());
     %>
         <span>My Listings </span>
+    <% } else if (filter != null && filter.equals("unreserved")) {
+        booksList = books.getUnreservedBooks(reservations);
+    %>
+        <span>Unreserved Books </span>
     <% } else {
         booksList = books.getBooks();
     %>
@@ -25,7 +29,7 @@
         <ul class="list-group list-group-flush">
             <% for (Book b : booksList) { %>
                 <li class="list-group-item">
-                    <a href="index.jsp?<%= hasSelfListingFilter ? "myListings" : "" %>&isbn=<%= b.getIsbn() %>">
+                    <a href="index.jsp?<%= filter != null ? "filter=" + filter : "" %>&isbn=<%= b.getIsbn() %>">
                         <h5><%= b.getTitle() %></h5>
                     </a>
                     <p>by <%= b.getAuthor() %> | <span class="badge badge-primary"><%= b.getCategory() %></span></p>

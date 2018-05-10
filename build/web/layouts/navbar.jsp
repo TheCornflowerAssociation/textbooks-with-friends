@@ -13,13 +13,13 @@
             <a class="nav-link" href="index.jsp">All Listings</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.jsp">Unreserved Listings</a>
+            <a class="nav-link" href="index.jsp?filter=unreserved">Unreserved Listings</a>
         </li>
         <%
             if (currentUser != null) {
         %>
             <li class="nav-item">
-                <a class="nav-link" href="index.jsp?myListings">My Listings</a>
+                <a class="nav-link" href="index.jsp?filter=myListings">My Listings</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">New Listing</a>

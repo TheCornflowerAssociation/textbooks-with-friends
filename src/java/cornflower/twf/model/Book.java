@@ -124,7 +124,7 @@ public class Book implements Serializable {
         }
     }
 
-    boolean hasLister(String email) {
+    public boolean hasLister(String email) {
         for (BookCopy copy : bookCopies) {
             if (copy.getLister().equals(email)) {
                 return true;
@@ -133,4 +133,22 @@ public class Book implements Serializable {
         return false;
     }
     
+    public ArrayList<BookCopy> getUnreservedCopies(Reservations reservations) {
+        ArrayList<BookCopy> matchingCopies = new ArrayList<>();
+        for (BookCopy copy : bookCopies) {
+            if (!reservations.checkReserved(isbn, copy.getId())) {
+                matchingCopies.add(copy);
+            }
+        }
+        return matchingCopies;
+    }
+    
+    public boolean hasUnreserved(Reservations reservations) {
+        for (BookCopy copy : bookCopies) {
+            if (!reservations.checkReserved(isbn, copy.getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

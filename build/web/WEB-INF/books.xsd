@@ -39,7 +39,6 @@ and open the template in the editor.
                                         <xs:sequence>
                                             <xs:element name="id" type="xs:integer"/>
                                             <xs:element name="condition" type="xs:string"/>
-                                            <xs:element name="reserved" type="xs:boolean"/>
                                             <xs:element name="lister" type="xs:string"/>
                                             <xs:element name="edition" type="xs:integer"/>
                                             <xs:element name="publisher" type="xs:string"/>

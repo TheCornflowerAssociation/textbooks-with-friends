@@ -31,6 +31,15 @@ public class Reservations implements Serializable {
         this.reservations = reservations;
     }
     
+    public boolean checkReserved(String isbn, int copyId) {
+        for (Reservation reservation : reservations) {
+            if (reservation.getIsbn().equals(isbn) && reservation.getCopyId() == copyId) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public Reservation getReservation(String isbn, int copyId) {
         for (Reservation reservation : reservations) {
             if (reservation.getIsbn().equals(isbn) && reservation.getCopyId() == copyId) {

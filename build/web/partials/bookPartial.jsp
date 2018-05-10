@@ -20,8 +20,11 @@
         
         ArrayList<BookCopy> copies;
         
-        if (hasSelfListingFilter) {
+        if (filter != null && filter.equals("myListings")) {
             copies = book.getCopiesByLister(currentUser.getEmail());
+        }
+        else if (filter != null && filter.equals("unreserved")) {
+            copies = book.getUnreservedCopies(reservations);
         }
         else {
             copies = book.getBookCopies();
@@ -56,7 +59,7 @@
                     <td><%= copy.getEdition() %></td>
                     <td><%= copy.getPublisher() %></td>
                     <td><%= copy.getYear() %></td>
-                    <% if (copy.isReserved()) { %>
+                    <% if (reservations.checkReserved(book.getIsbn(), copy.getId())) { %>
                         <td>
                             <button type="submit" name="submit" class="btn btn-primary disabled">Reserved</button>
                         </td>

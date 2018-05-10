@@ -4,7 +4,6 @@
         <bookCopy>
             <id>1</id>
             <condition>good</condition>
-            <reserved>true</reserved>
             <edition>5</edition>
             <year>2015</year>
             <publisher>Penguin Books</publisher>
@@ -13,7 +12,6 @@
         <bookCopy>
             <id>2</id>
             <condition>poor</condition>
-            <reserved>true</reserved>
             <edition>5</edition>
             <year>2015</year>
             <publisher>Penguin Books</publisher>
@@ -22,7 +20,6 @@
         <bookCopy>
             <id>3</id>
             <condition>meme</condition>
-            <reserved>true</reserved>
             <edition>5</edition>
             <year>2015</year>
             <publisher>Penguin Books</publisher>
@@ -38,7 +35,6 @@
         <bookCopy>
             <id>1</id>
             <condition>Good</condition>
-            <reserved>false</reserved>
             <edition>5</edition>
             <year>2015</year>
             <publisher>Penguin Books</publisher>
@@ -47,7 +43,6 @@
         <bookCopy>
             <id>2</id>
             <condition>Poor</condition>
-            <reserved>true</reserved>
             <edition>5</edition>
             <year>2015</year>
             <publisher>Penguin Books</publisher>
@@ -56,7 +51,6 @@
         <bookCopy>
             <id>3</id>
             <condition>Vintage</condition>
-            <reserved>false</reserved>
             <edition>5</edition>
             <year>2015</year>
             <publisher>Penguin Books</publisher>

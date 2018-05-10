@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.model.Reservations"%>
 <%@page import="cornflower.twf.model.Book"%>
 <%@page import="cornflower.twf.model.Books"%>
 <%@page import="cornflower.twf.model.Lister"%>
@@ -12,8 +13,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% 
+    String filter = request.getParameter("filter");
+    Lister currentUser = (Lister) session.getAttribute("lister");
     ActionController ac = new ActionController(application);
     Books books = ac.getBooks();
+    Reservations reservations = ac.getReservations();
 %>
 <html>
     <%@include file="layouts/header.jsp" %>
