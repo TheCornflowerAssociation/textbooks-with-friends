@@ -3,6 +3,14 @@
     Created on : 23/04/2018, 12:49:55 PM
     Author     : J-Mo
 --%>
+
+<script>
+    function setReserveModalValues(isbn, id) { 
+        document.getElementById("reserveModalIsbn").value = isbn;
+        document.getElementById("reserveModalCopyId").value = id;  
+    }
+</script>
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <% 
@@ -53,20 +61,10 @@
                             <button type="submit" name="submit" class="btn btn-primary disabled">Reserved</button>
                         </td>
                     <% } else { %>
-                        <% if (session.getAttribute("lister") != null) { %>
                             <td>
-                                <form action="actions/reserveAction.jsp" method="post">
-                                    <input type="hidden" name="isbn" value="<%=  book.getIsbn() %>">
-                                    <input type="hidden" name="copyId" value="<%= copy.getId() %>">
-                                    <button type="submit" name="submit" class="btn btn-primary">Reserve this Book</button>
-                                </form>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserveModal" onclick='setReserveModalValues(<%= '\"' + book.getIsbn() + '\"' %>, <%= copy.getId() %>);'>Reserve this Book</button>
                             </td>
-                        <% } else { %>
-                            <td>
-                                <button type="submit" name="submit" class="btn btn-primary disabled">Login to reserve this book</button>
-                            </td>   
-                        <% } 
-                    } %>
+                    <% } %>
                     <td><%= copy.getLister() %></td>
                 </tr>
                 <%

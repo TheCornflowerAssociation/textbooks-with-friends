@@ -4,29 +4,29 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.model.Reservations"%>
+<%@page import="cornflower.twf.model.Reservation"%>
 <%@page import="cornflower.twf.model.Books"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <%@page import="cornflower.twf.model.Book"%>
 <%@page import="cornflower.twf.utils.ActionController"%>
 <%
     ActionController ac = new ActionController(application);
-    Books books = ac.getBooks();
+    Reservations reservations = ac.getReservations();
     
     
     String isbn = request.getParameter("isbn");
-    Book book = books.getBook(isbn);
     
     
     int copyId = Integer.parseInt(request.getParameter("copyId"));
-    BookCopy bookCopy = book.getBookCopy(copyId);
     
+    String name = request.getParameter("name");
+    String email = request.getParameter("email");
     
-    bookCopy.setReserved(true);
+    Reservation reservation = new Reservation(isbn, copyId, name, email);
     
-    
-    book.setBookCopy(copyId, bookCopy);
-    books.setBook(isbn, book);
-    ac.commitBookData(books);
+    reservations.addOrSetReservation(isbn, copyId, reservation);
+    ac.commitReservationData(reservations);
     
     
     response.sendRedirect("../index.jsp");

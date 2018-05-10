@@ -17,42 +17,53 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Reservation implements Serializable {
-    private int reservationId;
-    private String username;
-    private int bookId;
+    private String isbn;
+    private int copyId;
+    private String name;
+    private String email;
 
-    public Reservation(int reservationId, String username, int bookId) {
-        this.reservationId = reservationId;
-        this.username = username;
-        this.bookId = bookId;
+    public Reservation(String isbn, int copyId, String name, String email) {
+        this.isbn = isbn;
+        this.copyId = copyId;
+        this.name = name;
+        this.email = email;
     }
     
     public Reservation() {
         super();
     }
 
-    public int getReservationId() {
-        return reservationId;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getUsername() {
-        return username;
+    public int getCopyId() {
+        return copyId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCopyId(int copyId) {
+        this.copyId = copyId;
     }
 
-    public int getBookId() {
-        return bookId;
+    public String getName() {
+        return name;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     
 }

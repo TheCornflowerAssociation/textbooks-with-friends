@@ -31,5 +31,6 @@
             </div>
         </div>
         <%@include file="modals/loginModal.jsp" %>
+        <%@include file="modals/reserveModal.jsp" %>
     </body>
 </html>

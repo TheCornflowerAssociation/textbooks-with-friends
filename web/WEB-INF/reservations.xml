@@ -3,8 +3,9 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="reservations.xsd">
     <reservation>
-        <reservationId>1</reservationId>
-        <username>PreslandBoy</username>
-        <bookId>68</bookId>
+        <isbn>1</isbn>
+        <copyId>1</copyId>
+        <name>Presland Boy</name>
+        <email>pboy@presland.com</email>
     </reservation>
 </reservations>

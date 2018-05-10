@@ -32,9 +32,9 @@ public class TestJAXB implements Serializable {
   
   Reservations reservations = new Reservations();
   
-  Reservation newReservation = new Reservation(1, "PreslandBoy", 1);
+  Reservation newReservation = new Reservation("1", 1, "Presland Boy", "pboy@presland.com");
   
-  reservations.addReservation(newReservation);
+  reservations.addOrSetReservation("1", 1, newReservation);
   
   Lister laurence = new Lister("PreslandBoy", "laurencepresland@gmail.com", "corn");
   

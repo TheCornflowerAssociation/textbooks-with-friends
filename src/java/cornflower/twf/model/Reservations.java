@@ -31,25 +31,30 @@ public class Reservations implements Serializable {
         this.reservations = reservations;
     }
     
-    public Reservation getReservation(int reservationId) {
+    public Reservation getReservation(String isbn, int copyId) {
         for (Reservation reservation : reservations) {
-            if (reservation.getReservationId() == reservationId) {
+            if (reservation.getIsbn().equals(isbn) && reservation.getCopyId() == copyId) {
                 return reservation;
             }
         }
         return null;
     }
     
-    public void setReservation(int reservationId, Reservation newReservation) {
+    public void addOrSetReservation(String isbn, int copyId, Reservation newReservation) {
+        boolean found = false;
         for (Reservation reservation : reservations) {
-            if (reservation.getReservationId() == reservationId) {
+            if (reservation.getIsbn().equals(isbn) && reservation.getCopyId() == copyId) {
                 reservation = newReservation;
+                found = true;
             }
+        }
+        if (!found) {
+            reservations.add(newReservation);
         }
     }
     
-    public void addReservation(Reservation newReservation) {
-        reservations.add(newReservation);
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
     }
     
     public void removeReservation(Reservation reservation) {
