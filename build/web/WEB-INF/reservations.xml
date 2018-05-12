@@ -18,16 +18,4 @@
         <name>Dan</name>
         <email>bump@whip.com</email>
     </reservation>
-    <reservation>
-        <isbn>978-3-16-148410-0</isbn>
-        <copyId>2</copyId>
-        <name>Jord</name>
-        <email>jord@ford.com</email>
-    </reservation>
-    <reservation>
-        <isbn>978-3-16-158410-0</isbn>
-        <copyId>2</copyId>
-        <name>Fred</name>
-        <email>fred@ded.com</email>
-    </reservation>
 </reservations>

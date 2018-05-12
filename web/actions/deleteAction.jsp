@@ -4,14 +4,38 @@
     Author     : J-Mo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@page import="cornflower.twf.model.BookCopy"%>
+<%@page import="cornflower.twf.model.Book"%>
+<%@page import="cornflower.twf.model.Books"%>
+<%@page import="cornflower.twf.model.Lister"%>
+<%@page import="cornflower.twf.model.Reservation"%>
+<%@page import="cornflower.twf.model.Reservations"%>
+<%@page import="cornflower.twf.utils.ActionController"%>
+<%
+    ActionController ac = new ActionController(application);
+    Reservations reservations = ac.getReservations();
+    Books books = ac.getBooks();
+    
+    String isbn = request.getParameter("isbn");
+    int copyId = Integer.parseInt(request.getParameter("copyId"));
+    Lister lister = (Lister) session.getAttribute("lister");
+    
+    Book book = books.getBook(isbn);
+    BookCopy copy = book.getBookCopy(copyId);
+    if (copy.getLister().equals(lister.getEmail())) {
+        // Remove the book
+        book.removeBookCopy(copy);
+        books.setBook(isbn, book);
+        ac.commitBookData(books);
+
+        // Remove any reservations for the book copy
+        Reservation reservation = reservations.getReservation(isbn, copyId);
+        if (reservation != null) {
+            reservations.removeReservation(reservation);
+        }
+        ac.commitReservationData(reservations);
+    }
+    
+    
+    response.sendRedirect("../index.jsp");
+%>

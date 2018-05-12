@@ -47,6 +47,9 @@
                     <th scope="col">Year</th>
                     <th scope="col">Status</th>
                     <th scope="col">Lister</th>
+                    <% if (currentUser != null) { %>
+                        <th scope="col">Options</th>
+                    <% } %>
                 </tr>
             </thead>
             <tbody>
@@ -69,6 +72,19 @@
                             </td>
                     <% } %>
                     <td><%= copy.getLister() %></td>
+                    <% if (currentUser != null && currentUser.getEmail().equals(copy.getLister())) { %>
+                        <td>
+                            <form action="actions/deleteAction.jsp" method="post">
+                                <input type="hidden" name="isbn" value="<%= book.getIsbn() %>">
+                                <input type="hidden" name="copyId" value="<%= copy.getId() %>">
+                                <button type="submit" name="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    <% } else if (currentUser != null) { %>
+                        <td>
+                            <p>You are not lister</p>
+                        </td>
+                    <% } %>
                 </tr>
                 <%
                     }

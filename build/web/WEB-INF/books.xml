@@ -10,14 +10,6 @@
             <lister>PreslandBoy</lister>
         </bookCopy>
         <bookCopy>
-            <id>2</id>
-            <condition>poor</condition>
-            <edition>5</edition>
-            <year>2015</year>
-            <publisher>Penguin Books</publisher>
-            <lister>meme@meme.com</lister>
-        </bookCopy>
-        <bookCopy>
             <id>3</id>
             <condition>meme</condition>
             <edition>5</edition>
@@ -39,14 +31,6 @@
             <year>2015</year>
             <publisher>Penguin Books</publisher>
             <lister>PreslandBoy</lister>
-        </bookCopy>
-        <bookCopy>
-            <id>2</id>
-            <condition>Poor</condition>
-            <edition>5</edition>
-            <year>2015</year>
-            <publisher>Penguin Books</publisher>
-            <lister>meme@meme.com</lister>
         </bookCopy>
         <bookCopy>
             <id>3</id>
