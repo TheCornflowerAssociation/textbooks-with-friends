@@ -14,7 +14,7 @@ and open the template in the editor.
         <title>Star Wars</title>
         <author>George R. R. Martin</author>
         <description>When bilbo becomes an orphan, he is recruited to hogwarts.</description>
-        <category>Fantasy</category>
+        <category>Fantasy, Scifi</category>
         <bookCopy>
             <id>1</id>
             <condition>good</condition>

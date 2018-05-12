@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="java.util.Arrays"%>
 <script>
     function setReserveModalValues(isbn, id) { 
         document.getElementById("reserveModalIsbn").value = isbn;
@@ -33,7 +34,16 @@
 <div class="card">
     <h4 class="card-header"><%= book.getTitle() %></h4>
     <div class="card-body">
-        <h5 class="card-title">by <%= book.getAuthor() %> | <span class="badge badge-primary"><%= book.getCategory() %></span></h5>
+        <h5 class="card-title">
+            by <%= book.getAuthor() %> | 
+            <% 
+                String categories[] = book.getCategory().trim().split(",");
+                
+                for (String category : categories) {
+            %>
+                <span class="badge badge-primary"><%= category %></span>
+            <% } %>
+        </h5>
         <p class="card-text"><b>ISBN:</b> <%= book.getIsbn() %></p>
         <p class="card-text"><b>Description:</b> <%= book.getDescription() %></p>
         <br>

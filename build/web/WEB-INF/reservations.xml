@@ -1,21 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<reservations>
+<?xml version="1.0" encoding="UTF-8"?>
+<reservations
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="reservations.xsd">
     <reservation>
         <isbn>1</isbn>
         <copyId>1</copyId>
         <name>Presland Boy</name>
         <email>pboy@presland.com</email>
-    </reservation>
-    <reservation>
-        <isbn>978-3-16-148410-0</isbn>
-        <copyId>1</copyId>
-        <name>Jon Jon</name>
-        <email>meme@deem.com</email>
-    </reservation>
-    <reservation>
-        <isbn>978-3-16-148410-0</isbn>
-        <copyId>3</copyId>
-        <name>Dan</name>
-        <email>bump@whip.com</email>
     </reservation>
 </reservations>
