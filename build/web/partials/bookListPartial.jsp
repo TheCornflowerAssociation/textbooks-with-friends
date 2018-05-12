@@ -32,7 +32,8 @@
                     <a href="index.jsp?<%= filter != null ? "filter=" + filter : "" %>&isbn=<%= book.getIsbn() %>">
                         <h5><%= book.getTitle() %></h5>
                     </a>
-                    <p>by <%= book.getAuthor() %> | <%@include file="categoriesPartial.jsp" %></p>
+                    <p>by <%= book.getAuthor() %></p>
+                    <p><%@include file="categoriesPartial.jsp" %></p>
                 </li>
             <% } %>
         </ul>

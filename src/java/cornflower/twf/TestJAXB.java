@@ -42,7 +42,7 @@ public class TestJAXB implements Serializable {
   
   
   starWars.addBookCopy(bookCopy);
-  shelf.AddBook(starWars);
+  shelf.addBook(starWars);
   users.addUser(laurence);
   
   TextbookSystem system = new TextbookSystem();
