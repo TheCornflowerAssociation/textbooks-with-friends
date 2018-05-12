@@ -76,7 +76,7 @@ public class Books implements Serializable {
     public ArrayList<Book> getBooks() {
         return books;
     }
-    public void AddBook(Book book) {
+    public void addBook(Book book) {
         books.add(book);
     }
     public void removeBook(Book book) {

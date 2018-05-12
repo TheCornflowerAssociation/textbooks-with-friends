@@ -22,7 +22,10 @@
                 <a class="nav-link" href="index.jsp?filter=myListings">My Listings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">New Listing</a>
+                <a class="nav-link" data-toggle="modal" data-target="#createBookModal" href="">Add Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Add Copy</a>
             </li>
         <% } %>
     </ul>

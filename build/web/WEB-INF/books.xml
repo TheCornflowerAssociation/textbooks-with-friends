@@ -62,4 +62,11 @@
         <author>Patrick Rothfuss</author>
         <category>Fantasy</category>
     </book>
+    <book>
+        <isbn>1234-3456</isbn>
+        <title>The Men Who Stare at Goats</title>
+        <description>A book about people staring at cattle</description>
+        <author>Jon Ronson</author>
+        <category>Fiction, Historical, Cold War</category>
+    </book>
 </books>

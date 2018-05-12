@@ -36,13 +36,7 @@
     <div class="card-body">
         <h5 class="card-title">
             by <%= book.getAuthor() %> | 
-            <% 
-                String categories[] = book.getCategory().trim().split(",");
-                
-                for (String category : categories) {
-            %>
-                <span class="badge badge-primary"><%= category %></span>
-            <% } %>
+            <%@include file="categoriesPartial.jsp" %>
         </h5>
         <p class="card-text"><b>ISBN:</b> <%= book.getIsbn() %></p>
         <p class="card-text"><b>Description:</b> <%= book.getDescription() %></p>
