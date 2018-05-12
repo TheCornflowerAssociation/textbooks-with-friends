@@ -19,14 +19,14 @@
             <div class="modal-body">
                 <form action="actions/loginAction.jsp" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">Some error message</small>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     </div>
                     <br>
-                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </div>

@@ -12,16 +12,15 @@
     ActionController ac = new ActionController(application);
     Users users = ac.getUsers();
     
+    String username = request.getParameter("username");
     String email = request.getParameter("email");
     String password = request.getParameter("password");
     
-    Lister lister = users.login(email, password);
+    Lister lister = new Lister(username, email, password);
+    users.addUser(lister);
+    ac.commitUserData(users);
     
-    if (lister != null) {
-        session.setAttribute("lister", lister);
-        response.sendRedirect("../index.jsp");
-    }
-    else {
-        response.sendRedirect("../index.jsp");
-    }
+    session.setAttribute("lister", lister);
+    
+    response.sendRedirect("../index.jsp");
 %>

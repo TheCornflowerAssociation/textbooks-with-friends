@@ -16,15 +16,12 @@
     String password = request.getParameter("password");
     
     Lister lister = users.login(email, password);
-    System.out.print(lister);
     
     if (lister != null) {
-        System.out.print("lister not null");
         session.setAttribute("lister", lister);
         response.sendRedirect("../index.jsp");
     }
     else {
-        System.out.print("lister null");
         response.sendRedirect("../index.jsp");
     }
 %>

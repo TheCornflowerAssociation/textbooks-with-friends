@@ -36,5 +36,6 @@
         </div>
         <%@include file="modals/loginModal.jsp" %>
         <%@include file="modals/reserveModal.jsp" %>
+        <%@include file="modals/registerModal.jsp" %>
     </body>
 </html>

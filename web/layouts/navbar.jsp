@@ -38,6 +38,7 @@
             </li>
         <%  } else { %>
             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal">Login</button>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#registerModal">Register</button>
         <%  } %>
     </ul>
 </nav>
