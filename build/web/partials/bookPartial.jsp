@@ -10,6 +10,10 @@
         document.getElementById("reserveModalIsbn").value = isbn;
         document.getElementById("reserveModalCopyId").value = id;  
     }
+    
+    function setCreateCopyModalValues(isbn) { 
+        document.getElementById("createCopyModalIsbn").value = isbn;
+    }
 </script>
 
 <%@page import="java.util.ArrayList"%>
@@ -72,6 +76,9 @@
                 %>
             </tbody>
         </table>
+        <% if (currentUser != null) { %>
+            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#createCopyModal" onclick='setCreateCopyModalValues(<%= '\"' + book.getIsbn() + '\"' %>);'>Add Copy</button>
+        <% } %>
     </div>
 </div>
 <%

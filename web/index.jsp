@@ -38,5 +38,6 @@
         <%@include file="modals/reserveCopyModal.jsp" %>
         <%@include file="modals/registerModal.jsp" %>
         <%@include file="modals/createBookModal.jsp" %>
+        <%@include file="modals/createCopyModal.jsp" %>
     </body>
 </html>

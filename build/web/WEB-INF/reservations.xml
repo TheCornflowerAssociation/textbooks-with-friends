@@ -6,4 +6,10 @@
         <name>Presland Boy</name>
         <email>pboy@presland.com</email>
     </reservation>
+    <reservation>
+        <isbn>978-3-16-158410-0</isbn>
+        <copyId>2</copyId>
+        <name>ohnoin</name>
+        <email>hibn0ibn</email>
+    </reservation>
 </reservations>

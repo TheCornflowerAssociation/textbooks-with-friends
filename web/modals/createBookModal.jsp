@@ -31,7 +31,7 @@
                         <small class="form-text text-muted">Enter all categories separated by a comma e.g. Fantasy, Fiction, Drama</small>
                     </div>
                     <br>
-                    <button type="submit" name="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Add Book</button>
                 </form>
             </div>
         </div>

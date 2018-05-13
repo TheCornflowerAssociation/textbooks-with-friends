@@ -42,6 +42,23 @@ public class Book implements Serializable {
         this.description = description;
         this.category = category;
     }
+    
+    public int getNewId() {
+        int id = 1;
+        while (hasCollision(id)) {
+            id++;
+        }
+        return id;
+    }
+    
+    private boolean hasCollision(int id) {
+        for (BookCopy copy : bookCopies) {
+            if (copy.getId() == id) {
+                    return true;
+            }
+        }
+        return false;
+    }
 
     public ArrayList<BookCopy> getBookCopies() {
         return bookCopies;
