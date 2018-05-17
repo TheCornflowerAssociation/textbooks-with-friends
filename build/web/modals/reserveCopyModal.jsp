@@ -21,7 +21,7 @@
                         <small id="emailHelp" class="form-text text-muted">Some error message</small>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="email" name="email" placeholder="Enter email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required="true" title="Must be a valid email address">
                     </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Reserve</button>
