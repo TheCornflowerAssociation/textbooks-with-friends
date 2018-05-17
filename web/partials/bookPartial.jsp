@@ -78,7 +78,13 @@
         </table>
         <% if (currentUser != null) { %>
             <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#createCopyModal" onclick='setCreateCopyModalValues(<%= '\"' + book.getIsbn() + '\"' %>);'>Add Copy</button>
-        <% } %>
+            <% if (copies.size() <= 0) { %>
+                <form action="actions/deleteBookAction.jsp" method="post">
+                    <input type="hidden" name="isbn" value="<%= book.getIsbn() %>">
+                    <button type="submit" name="submit" class="btn btn-danger">Remove Book</button>
+                </form>
+            <% }
+           } %>
     </div>
 </div>
 <%

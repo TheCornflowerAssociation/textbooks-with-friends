@@ -41,6 +41,10 @@ public class Books implements Serializable {
         return null;
     }
     
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+    
     public void setBook(String isbn, Book newBook) {
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {
@@ -78,9 +82,6 @@ public class Books implements Serializable {
     }
     public void addBook(Book book) {
         books.add(book);
-    }
-    public void removeBook(Book book) {
-        books.remove(book);
     }
     
 }

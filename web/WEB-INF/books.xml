@@ -18,7 +18,7 @@ and open the template in the editor.
         <bookCopy>
             <id>1</id>
             <condition>good</condition>
-            <lister>PreslandBoy</lister>
+            <lister>meme@meme.com</lister>
             <edition>5</edition>
             <publisher>Penguin Books</publisher>
             <year>2015</year>
@@ -34,7 +34,7 @@ and open the template in the editor.
         <bookCopy>
             <id>3</id>
             <condition>meme</condition>
-            <lister>PreslandBoy</lister>
+            <lister>meme@meme.com</lister>
             <edition>5</edition>
             <publisher>Penguin Books</publisher>
             <year>2015</year>
@@ -49,7 +49,7 @@ and open the template in the editor.
         <bookCopy>
             <id>1</id>
             <condition>Good</condition>
-            <lister>PreslandBoy</lister>
+            <lister>meme@meme.com</lister>
             <edition>5</edition>
             <publisher>Penguin Books</publisher>
             <year>2015</year>
@@ -65,7 +65,7 @@ and open the template in the editor.
         <bookCopy>
             <id>3</id>
             <condition>Vintage</condition>
-            <lister>PreslandBoy</lister>
+            <lister>laurencepresland@gmail.com</lister>
             <edition>5</edition>
             <publisher>Penguin Books</publisher>
             <year>2015</year>
