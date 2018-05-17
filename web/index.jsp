@@ -23,6 +23,7 @@
     <%@include file="layouts/header.jsp" %>
     <body style="background-color: #f2f2f2">
         <%@include file="layouts/navbar.jsp" %>
+        <%@include file="layouts/alert.jsp" %>
         <div style="margin-left: 5%; margin-right: 5%;">
             <div class="row">
                 <div class="col-md-3">
@@ -40,4 +41,5 @@
         <%@include file="modals/createBookModal.jsp" %>
         <%@include file="modals/createCopyModal.jsp" %>
     </body>
+    <%@include file="layouts/dispatch.jsp" %>
 </html>

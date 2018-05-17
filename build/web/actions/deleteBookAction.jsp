@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.model.Book"%>
 <%@page import="cornflower.twf.model.Lister"%>
 <%@page import="cornflower.twf.model.Books"%>
@@ -25,5 +26,6 @@
         ac.commitBookData(books);
     }
     
+    session.setAttribute("appMessage", new AppMessage("success", "Removed book \"" + book.getTitle() + "\" from listings"));
     response.sendRedirect("../index.jsp");
 %>

@@ -23,6 +23,9 @@
                     <div class="form-group">
                         <input class="form-control" id="email" name="email" placeholder="Enter email">
                     </div>
+                    <div class="form-group">
+                        <small id="reserveModalMessage" class="form-text" style="color: red;"></small>
+                    </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Reserve</button>
                 </form>

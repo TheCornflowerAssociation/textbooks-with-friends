@@ -23,10 +23,12 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
-                        <small id="emailHelp" class="form-text text-muted">Some error message</small>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <small id="registerModalMessage" class="form-text" style="color: red;"></small>
                     </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Register</button>

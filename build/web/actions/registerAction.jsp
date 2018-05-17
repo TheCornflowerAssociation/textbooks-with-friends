@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.utils.ActionController"%>
 <%@page import="cornflower.twf.model.Lister"%>
 <%@page import="cornflower.twf.model.Users"%>
@@ -22,5 +23,6 @@
     
     session.setAttribute("lister", lister);
     
+    session.setAttribute("appMessage", new AppMessage("success", "Account created"));
     response.sendRedirect("../index.jsp");
 %>

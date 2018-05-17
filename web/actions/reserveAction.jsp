@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.model.Reservations"%>
 <%@page import="cornflower.twf.model.Reservation"%>
 <%@page import="cornflower.twf.model.Books"%>
@@ -28,6 +29,6 @@
     reservations.addOrSetReservation(isbn, copyId, reservation);
     ac.commitReservationData(reservations);
     
-    
+    session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
     response.sendRedirect("../index.jsp");
 %>

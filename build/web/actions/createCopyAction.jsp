@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <%@page import="cornflower.twf.model.Lister"%>
 <%@page import="cornflower.twf.model.Book"%>
@@ -32,5 +33,6 @@
         books.setBook(isbn, book);
         ac.commitBookData(books);
     }
+    session.setAttribute("appMessage", new AppMessage("success", "Added new book copy for \"" + book.getTitle() + "\""));
     response.sendRedirect("../index.jsp");
 %>

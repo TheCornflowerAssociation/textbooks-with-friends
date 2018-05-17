@@ -30,6 +30,9 @@
                         <input class="form-control" id="category" name="category" placeholder="Book categories">
                         <small class="form-text text-muted">Enter all categories separated by a comma e.g. Fantasy, Fiction, Drama</small>
                     </div>
+                    <div class="form-group">
+                        <small id="createBookModalMessage" class="form-text" style="color: red;"></small>
+                    </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Add Book</button>
                 </form>

@@ -37,6 +37,9 @@
                     <div class="form-group">
                         <input class="form-control" id="publisher" name="publisher" placeholder="Copy publisher">
                     </div>
+                    <div class="form-group">
+                        <small id="createCopyModalMessage" class="form-text" style="color: red;"></small>
+                    </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Add Copy</button>
                 </form>

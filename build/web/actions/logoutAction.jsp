@@ -4,7 +4,9 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%
     session.setAttribute("lister", null);
+    session.setAttribute("appMessage", new AppMessage("primary", "Logged out"));
     response.sendRedirect("../index.jsp");
 %>

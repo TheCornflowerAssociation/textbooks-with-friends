@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <%@page import="cornflower.twf.model.Book"%>
 <%@page import="cornflower.twf.model.Books"%>
@@ -36,6 +37,6 @@
         ac.commitReservationData(reservations);
     }
     
-    
+    session.setAttribute("appMessage", new AppMessage("success", "Removed book copy #" + copyId + " for \"" + book.getTitle() + "\""));
     response.sendRedirect("../index.jsp");
 %>

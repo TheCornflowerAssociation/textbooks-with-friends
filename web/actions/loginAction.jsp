@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.utils.ActionController"%>
 <%@page import="cornflower.twf.model.Lister"%>
 <%@page import="cornflower.twf.model.Users"%>
@@ -19,9 +20,11 @@
     
     if (lister != null) {
         session.setAttribute("lister", lister);
+        session.setAttribute("appMessage", new AppMessage("primary", "Logged in"));
         response.sendRedirect("../index.jsp");
     }
     else {
+        // Deal with bad login info
         response.sendRedirect("../index.jsp");
     }
 %>
