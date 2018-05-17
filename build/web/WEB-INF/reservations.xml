@@ -6,4 +6,16 @@
         <name>Presland Boy</name>
         <email>pboy@presland.com</email>
     </reservation>
+    <reservation>
+        <isbn>978-3-16-158410-0</isbn>
+        <copyId>1</copyId>
+        <name>jon</name>
+        <email>jon@jon.com</email>
+    </reservation>
+    <reservation>
+        <isbn>978-3-16-158410-0</isbn>
+        <copyId>2</copyId>
+        <name>Shoshana Broyda</name>
+        <email>shosh@shosh.com</email>
+    </reservation>
 </reservations>

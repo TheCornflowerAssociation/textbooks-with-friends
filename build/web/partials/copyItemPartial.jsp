@@ -3,15 +3,17 @@
     Created on : 27/04/2018, 6:56:00 PM
     Author     : J-Mo
 --%>
+<%@page import="cornflower.twf.model.Reservation"%>
 <tr>
     <th><%= copy.getId() %></th>
     <td><%= copy.getCondition() %></td>
     <td><%= copy.getEdition() %></td>
     <td><%= copy.getPublisher() %></td>
     <td><%= copy.getYear() %></td>
-    <% if (reservations.checkReserved(book.getIsbn(), copy.getId())) { %>
+    <% Reservation reservation = reservations.getReservation(book.getIsbn(), copy.getId()); %>
+    <% if (reservation != null) { %>
         <td>
-            <button type="submit" name="submit" class="btn btn-primary disabled">Reserved</button>
+            <button type="submit" name="submit" class="btn btn-primary disabled">Reserved <%= currentUser != null ? " by " + reservation.getName() : "" %></button>
         </td>
     <% } else { %>
         <td>
