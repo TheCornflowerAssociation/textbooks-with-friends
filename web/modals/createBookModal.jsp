@@ -15,19 +15,19 @@
             <div class="modal-body">
                 <form action="actions/createBookAction.jsp" method="post">
                     <div class="form-group">
-                        <input class="form-control" id="isbn" name="isbn" placeholder="ISBN" required="true" pattern="[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]" title="Must be a valid ISBN">
+                        <input class="form-control" id="isbn" name="isbn" placeholder="ISBN">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="title" name="title" required="true" placeholder="Book title">
+                        <input class="form-control" id="title" name="title" placeholder="Book title">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="description" name="description" required="true" placeholder="Book description">
+                        <input class="form-control" id="description" name="description" placeholder="Book description">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="author" name="author" required="true" placeholder="Book author">
+                        <input class="form-control" id="author" name="author" placeholder="Book author">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="category" name="category" required="true" placeholder="Book categories">
+                        <input class="form-control" id="category" name="category" placeholder="Book categories">
                         <small class="form-text text-muted">Enter all categories separated by a comma e.g. Fantasy, Fiction, Drama</small>
                     </div>
                     <br>

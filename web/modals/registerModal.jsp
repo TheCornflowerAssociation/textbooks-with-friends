@@ -19,13 +19,14 @@
             <div class="modal-body">
                 <form action="actions/registerAction.jsp" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required="true">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email" required="true" title="Must be a valid email address">
+                        <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+                        <small id="emailHelp" class="form-text text-muted">Some error message</small>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="true" pattern=".{8,}" title="Password must be at least 8 characters long.">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Register</button>

@@ -23,18 +23,27 @@ public class Validator implements Serializable {
         super();
     }
     
-    public static Boolean validEmail(String email) {
+    public Boolean validEmail(String email) {
         Matcher m = emailPattern.matcher(email);
-        return m.find();
+        if (m.find()) {
+            return true;
+        }
+        return false;
     }
     
-    public static Boolean validYear(String year) {
+    public Boolean validYear(String year) {
         Matcher m = yearPattern.matcher(year);
-        return m.find();
+        if (m.find()) {
+            return true;
+        }
+        return false;
     }
     
-    public static Boolean validIsbn(String isbn) {
+    public Boolean validIsbn(String isbn) {
         Matcher m = isbnPattern.matcher(isbn);
-        return m.find();
+        if (m.find()) {
+            return true;
+        }
+        return false;
     }
 }

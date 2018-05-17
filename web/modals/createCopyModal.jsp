@@ -29,13 +29,13 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="edition" name="edition" pattern="[0-9]{1,}" title="Must be a number" required="true" placeholder="Copy edition">
+                        <input class="form-control" id="edition" name="edition" placeholder="Copy edition">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="year" required="true" name="year" placeholder="Copy year" pattern="[0-9][0-9][0-9][0-9]" title="Must be a valid year e.g. 2017">
+                        <input class="form-control" id="year" name="year" placeholder="Copy year">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="publisher" name="publisher" required="true" placeholder="Copy publisher">
+                        <input class="form-control" id="publisher" name="publisher" placeholder="Copy publisher">
                     </div>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Add Copy</button>
