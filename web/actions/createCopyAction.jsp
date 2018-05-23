@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.Validator"%>
 <%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <%@page import="cornflower.twf.model.Lister"%>
@@ -13,11 +14,12 @@
 <%
     ActionController ac = new ActionController(application);
     Books books = ac.getBooks();
-    
+    Validator v = new Validator();
+
     // Get the book
     String isbn = request.getParameter("isbn");
     Book book = books.getBook(isbn);
-    
+
     // Get copy attributes
     try {
         String condition = request.getParameter("condition");
@@ -25,8 +27,7 @@
         int year = Integer.valueOf(request.getParameter("year"));
         String publisher = request.getParameter("publisher");
         Lister lister = (Lister) session.getAttribute("lister");
-    
-    
+
         // Check if the user is logged in
         if (lister != null) {
             // Add the copy
@@ -34,20 +35,42 @@
             book.addBookCopy(copy);
             books.setBook(isbn, book);
             ac.commitBookData(books);
-        }
-        else {
+        } else {
             session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
             response.sendRedirect(request.getHeader("Referer"));
         }
 
-        // Update this section
+        // Validation
         boolean validationsFail = false;
 
-        if (validationsFail) {
-            session.setAttribute("appMessage", new AppMessage("danger", "Some validations failed, this is the warning message"));
-            response.sendRedirect(request.getHeader("Referer"));
+        AppMessage conditionError = v.validText(condition);
+        if (conditionError != null) {
+            session.setAttribute("appMessage", conditionError);
+            validationsFail = true;
         }
-        else {
+
+        AppMessage editionError = v.validNumber(edition);
+        if (editionError != null) {
+            session.setAttribute("appMessage", editionError);
+            validationsFail = true;
+        }
+
+        AppMessage yearError = v.validYear(year);
+        if (yearError != null) {
+            session.setAttribute("appMessage", yearError);
+            validationsFail = true;
+        }
+
+        AppMessage publisherError = v.validText(publisher);
+        if (publisherError != null) {
+            session.setAttribute("appMessage", publisherError);
+            validationsFail = true;
+        }
+
+        // ----------
+        if (validationsFail) {
+            response.sendRedirect(request.getHeader("Referer"));
+        } else {
             session.setAttribute("appMessage", new AppMessage("success", "Added new book copy for \"" + book.getTitle() + "\""));
             response.sendRedirect("../index.jsp");
         }

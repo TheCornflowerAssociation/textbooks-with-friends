@@ -4,6 +4,7 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.Validator"%>
 <%@page import="cornflower.twf.utils.AppMessage"%>
 <%@page import="cornflower.twf.model.Reservations"%>
 <%@page import="cornflower.twf.model.Reservation"%>
@@ -14,6 +15,7 @@
 <%
     ActionController ac = new ActionController(application);
     Reservations reservations = ac.getReservations();
+    Validator v = new Validator();
     
     
     String isbn = request.getParameter("isbn");
@@ -31,11 +33,24 @@
     
     session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
     
-    // Update this section
+    // Validation
     boolean validationsFail = false;
+
+    AppMessage nameError = v.validText(name);
+    if (nameError != null) {
+        session.setAttribute("appMessage", nameError);
+        validationsFail = true;
+    }
+
+    AppMessage emailError = v.validEmail(email);
+    if (emailError != null) {
+        session.setAttribute("appMessage", emailError);
+        validationsFail = true;
+    }
+
+    // ----------
     
     if (validationsFail) {
-        session.setAttribute("appMessage", new AppMessage("danger", "Some validations failed, this is the warning message"));
         response.sendRedirect(request.getHeader("Referer"));
     }
     else {
