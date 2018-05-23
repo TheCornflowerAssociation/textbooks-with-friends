@@ -25,6 +25,7 @@
     }
     else {
         // Deal with bad login info
-        response.sendRedirect("../index.jsp");
+        session.setAttribute("appMessage", new AppMessage("danger", "Could not log you in, incorrect email or password"));
+        response.sendRedirect(request.getHeader("Referer"));
     }
 %>

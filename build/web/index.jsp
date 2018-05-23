@@ -35,11 +35,5 @@
                 </div>
             </div>
         </div>
-        <%@include file="modals/loginModal.jsp" %>
-        <%@include file="modals/reserveCopyModal.jsp" %>
-        <%@include file="modals/registerModal.jsp" %>
-        <%@include file="modals/createBookModal.jsp" %>
-        <%@include file="modals/createCopyModal.jsp" %>
     </body>
-    <%@include file="layouts/dispatch.jsp" %>
 </html>

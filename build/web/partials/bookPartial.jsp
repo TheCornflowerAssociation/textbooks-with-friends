@@ -5,17 +5,6 @@
 --%>
 
 <%@page import="java.util.Arrays"%>
-<script>
-    function setReserveModalValues(isbn, id) { 
-        document.getElementById("reserveModalIsbn").value = isbn;
-        document.getElementById("reserveModalCopyId").value = id;  
-    }
-    
-    function setCreateCopyModalValues(isbn) { 
-        document.getElementById("createCopyModalIsbn").value = isbn;
-    }
-</script>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <% 
@@ -77,7 +66,7 @@
             </tbody>
         </table>
         <% if (currentUser != null) { %>
-            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#createCopyModal" onclick='setCreateCopyModalValues(<%= '\"' + book.getIsbn() + '\"' %>);'>Add Copy</button>
+        <a class="btn btn-primary float-right" href="form.jsp?form=add_copy&isbn=<%= book.getIsbn() %>">Add Copy</a>
             <% if (copies.size() <= 0) { %>
                 <form action="actions/deleteBookAction.jsp" method="post">
                     <input type="hidden" name="isbn" value="<%= book.getIsbn() %>">

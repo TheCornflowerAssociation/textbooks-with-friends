@@ -27,6 +27,21 @@
         books.addBook(book);
         ac.commitBookData(books);
     }
-    session.setAttribute("appMessage", new AppMessage("success", "Added new book \"" + title + "\""));
-    response.sendRedirect("../index.jsp");
+    else {
+        session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+    
+    
+    // Update this section
+    boolean validationsFail = false;
+
+    if (validationsFail) {
+        session.setAttribute("appMessage", new AppMessage("danger", "Some validations failed, this is the warning message"));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+    else {
+        session.setAttribute("appMessage", new AppMessage("success", "Added new book \"" + title + "\""));
+        response.sendRedirect("../index.jsp");
+    }
 %>

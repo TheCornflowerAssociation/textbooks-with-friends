@@ -30,5 +30,15 @@
     ac.commitReservationData(reservations);
     
     session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
-    response.sendRedirect("../index.jsp");
+    
+    // Update this section
+    boolean validationsFail = false;
+    
+    if (validationsFail) {
+        session.setAttribute("appMessage", new AppMessage("danger", "Some validations failed, this is the warning message"));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+    else {
+        response.sendRedirect("../index.jsp");
+    }
 %>

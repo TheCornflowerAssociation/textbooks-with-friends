@@ -25,6 +25,10 @@
         books.removeBook(book);
         ac.commitBookData(books);
     }
+    else {
+        session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
     
     session.setAttribute("appMessage", new AppMessage("success", "Removed book \"" + book.getTitle() + "\" from listings"));
     response.sendRedirect("../index.jsp");

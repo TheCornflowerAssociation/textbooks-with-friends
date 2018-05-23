@@ -21,7 +21,6 @@
     %>
         <span>All Books </span>
     <% } %>
-    <span>(<%= booksList.size() %>)</span>
 </h2>
 <br>
 <div class="card">

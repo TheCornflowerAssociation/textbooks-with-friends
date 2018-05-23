@@ -36,6 +36,10 @@
         }
         ac.commitReservationData(reservations);
     }
+    else {
+        session.setAttribute("appMessage", new AppMessage("warning", "You may only delete copies you have listed"));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
     
     session.setAttribute("appMessage", new AppMessage("success", "Removed book copy #" + copyId + " for \"" + book.getTitle() + "\""));
     response.sendRedirect("../index.jsp");

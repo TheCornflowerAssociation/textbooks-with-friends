@@ -22,7 +22,7 @@
                 <a class="nav-link" href="index.jsp?filter=myListings">My Listings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#createBookModal" href="">Add Book</a>
+                <a class="nav-link" href="form.jsp?form=add_book">Add Book</a>
             </li>
         <% } %>
     </ul>
@@ -37,8 +37,8 @@
                 <a class="nav-link" href="actions/logoutAction.jsp">Logout</a>
             </li>
         <%  } else { %>
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal">Login</button>
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#registerModal">Register</button>
+            <a class="btn btn-dark" href="form.jsp?form=login">Login</a>
+            <a class="btn btn-dark" href="form.jsp?form=register">Register</a>
         <%  } %>
     </ul>
 </nav>

@@ -25,6 +25,22 @@
             <publisher>Penguin Books</publisher>
             <lister>meme@meme.com</lister>
         </bookCopy>
+        <bookCopy>
+            <id>4</id>
+            <condition>Poor</condition>
+            <edition>300</edition>
+            <year>300</year>
+            <publisher>Bongo</publisher>
+            <lister>jonjon@jon.jon</lister>
+        </bookCopy>
+        <bookCopy>
+            <id>5</id>
+            <condition>Fair</condition>
+            <edition>1</edition>
+            <year>1</year>
+            <publisher>111</publisher>
+            <lister>meme@meme.com</lister>
+        </bookCopy>
         <isbn>978-3-16-158410-0</isbn>
         <title>Star Wars</title>
         <description>When bilbo becomes an orphan, he is recruited to hogwarts.</description>
@@ -61,5 +77,26 @@
         <description>Told in Kvothe's own voice, this is the tale of the magically gifted young man who grows to be the most notorious wizard his world has ever seen. The intimate narrative of his childhood in a troupe of traveling players, his years spent as a near-feral orphan in a crime-ridden city, his daringly brazen yet successful bid to enter a legendary school of magic, and his life as a fugitive after the murder of a king form a gripping coming-of-age story unrivaled in recent literature. A high-action story written with a poet's hand, The Name of the Wind is a masterpiece that will transport readers into the body and mind of a wizard.</description>
         <author>Patrick Rothfuss</author>
         <category>Fantasy</category>
+    </book>
+    <book>
+        <isbn>liugiuf</isbn>
+        <title>iuyf;if;iyf</title>
+        <description>;iff;iyf;iyf;i</description>
+        <author>yf;iyf;iyf;iy</author>
+        <category>f;iyfi;yf;of;i, o8yfp8f</category>
+    </book>
+    <book>
+        <isbn>123</isbn>
+        <title>hi</title>
+        <description>hi</description>
+        <author>hi</author>
+        <category>hi, hi, bye,  </category>
+    </book>
+    <book>
+        <isbn>1111</isbn>
+        <title>lib;ouvo</title>
+        <description>;iv;iouv;</description>
+        <author>;itv;iuv;v</author>
+        <category>hi, hi, bye,     </category>
     </book>
 </books>

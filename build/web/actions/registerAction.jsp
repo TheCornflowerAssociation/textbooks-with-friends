@@ -17,12 +17,21 @@
     String email = request.getParameter("email");
     String password = request.getParameter("password");
     
-    Lister lister = new Lister(username, email, password);
-    users.addUser(lister);
-    ac.commitUserData(users);
+    // Update this section
+    boolean validationsFail = false;
     
-    session.setAttribute("lister", lister);
-    
-    session.setAttribute("appMessage", new AppMessage("success", "Account created"));
-    response.sendRedirect("../index.jsp");
+    if (validationsFail) {
+        session.setAttribute("appMessage", new AppMessage("danger", "Some validations failed, this is the warning message"));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+    else {
+        Lister lister = new Lister(username, email, password);
+        users.addUser(lister);
+        ac.commitUserData(users);
+        
+        
+        session.setAttribute("lister", lister);
+        session.setAttribute("appMessage", new AppMessage("success", "Account created"));
+        response.sendRedirect("../index.jsp");
+    }
 %>

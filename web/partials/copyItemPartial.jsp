@@ -17,7 +17,7 @@
         </td>
     <% } else { %>
         <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserveModal" onclick='setReserveModalValues(<%= '\"' + book.getIsbn() + '\"' %>, <%= copy.getId() %>);'>Reserve this Book</button>
+            <a class="btn btn-primary" href="form.jsp?form=reserve&isbn=<%= book.getIsbn() %>&copyId=<%= copy.getId() %>">Reserve this Book</a>
         </td>
     <% } %>
     <td><%= copy.getLister() %></td>
