@@ -6,4 +6,10 @@
         <name>Presland Boy</name>
         <email>pboy@presland.com</email>
     </reservation>
+    <reservation>
+        <isbn>978-3-16-158410-0</isbn>
+        <copyId>1</copyId>
+        <name>Jonathan Moallem</name>
+        <email>jdmoallem@gmail.com</email>
+    </reservation>
 </reservations>

@@ -23,7 +23,8 @@
     <td><%= copy.getLister() %></td>
     <% if (currentUser != null && currentUser.getEmail().equals(copy.getLister())) { %>
         <td>
-            <form action="actions/deleteCopyAction.jsp" method="post">
+            <form action="<%= request.getContextPath() %>/action/copy" method="post">
+                <input type="hidden" name="action" value="delete"/>
                 <input type="hidden" name="isbn" value="<%= book.getIsbn() %>">
                 <input type="hidden" name="copyId" value="<%= copy.getId() %>">
                 <button type="submit" name="submit" class="btn btn-danger">Delete</button>

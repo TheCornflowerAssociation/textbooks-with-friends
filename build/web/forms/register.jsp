@@ -4,7 +4,7 @@
     Author     : J-Mo
 --%>
 
-<form action="actions/registerAction.jsp" method="post">
+<form action="<%= request.getContextPath() %>/action/user" method="post">
     <div class="form-group">
         <input type="text" class="form-control" id="username" name="username" placeholder="Username">
     </div>

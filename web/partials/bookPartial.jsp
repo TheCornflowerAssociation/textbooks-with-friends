@@ -68,7 +68,8 @@
         <% if (currentUser != null) { %>
         <a class="btn btn-primary float-right" href="form.jsp?form=add_copy&isbn=<%= book.getIsbn() %>">Add Copy</a>
             <% if (copies.size() <= 0) { %>
-                <form action="actions/deleteBookAction.jsp" method="post">
+                <form action="<%= request.getContextPath() %>/action/book" method="post">
+                    <input type="hidden" name="action" value="delete"/>
                     <input type="hidden" name="isbn" value="<%= book.getIsbn() %>">
                     <button type="submit" name="submit" class="btn btn-danger">Remove Book</button>
                 </form>

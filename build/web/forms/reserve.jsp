@@ -3,7 +3,8 @@
     Created on : 27/04/2018, 7:47:30 PM
     Author     : J-Mo
 --%>
-<form action="actions/reserveAction.jsp" method="post">
+<form action="<%= request.getContextPath() %>/action/copy" method="post">
+    <input type="hidden" name="action" value="reserve"/>
     <input id="reserveModalIsbn" type="hidden" name="isbn" value="<%= request.getParameter("isbn") %>">
     <input id="reserveModalCopyId" type="hidden" name="copyId" value="<%= request.getParameter("copyId") %>">
     <div class="form-group">

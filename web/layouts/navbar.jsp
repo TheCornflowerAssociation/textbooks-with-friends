@@ -34,7 +34,10 @@
                 <a class="nav-link" href="#"><%= currentUser.getUsername() %></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="actions/logoutAction.jsp">Logout</a>
+                <form action="<%= request.getContextPath() %>/action/session" method="delete">
+                    <input type="hidden" name="action" value="delete"/>
+                    <button type="submit" name="submit" class="btn btn-danger">Logout</button>
+                </form>
             </li>
         <%  } else { %>
             <a class="btn btn-dark" href="form.jsp?form=login">Login</a>

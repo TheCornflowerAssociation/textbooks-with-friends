@@ -3,7 +3,7 @@
     Created on : 27/04/2018, 7:47:30 PM
     Author     : J-Mo
 --%>
-<form action="actions/createBookAction.jsp" method="post">
+<form action="<%= request.getContextPath() %>/action/book" method="post">
     <div class="form-group">
         <input class="form-control" id="isbn" name="isbn" placeholder="ISBN">
     </div>

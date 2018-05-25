@@ -11,13 +11,13 @@
         <password>jeans</password>
     </lister>
     <lister>
-        <username>bob</username>
-        <email>bob@bob.com</email>
-        <password>bob</password>
+        <username>up</username>
+        <email>up@up.com</email>
+        <password>up</password>
     </lister>
     <lister>
-        <username>bob</username>
-        <email>bob@bob.com</email>
-        <password>bob</password>
+        <username>Bon</username>
+        <email>bon@bon.com</email>
+        <password>bonbon</password>
     </lister>
 </users>

@@ -4,7 +4,7 @@
     Author     : J-Mo
 --%>
 
-<form action="actions/loginAction.jsp" method="post">
+<form action="<%= request.getContextPath() %>/action/session" method="post">
     <div class="form-group">
         <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
     </div>

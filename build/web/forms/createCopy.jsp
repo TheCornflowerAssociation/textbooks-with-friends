@@ -12,7 +12,7 @@
 %>
 <h3 class="text-center">for <%= book.getTitle() %></h3>
 <br>
-<form action="actions/createCopyAction.jsp" method="post">
+<form action="<%= request.getContextPath() %>/action/copy" method="post">
     <input id="createCopyModalIsbn" type="hidden" name="isbn" value="<%= isbn %>">
     <div class="form-group">
         <select class="form-control" id="condition" name="condition">
