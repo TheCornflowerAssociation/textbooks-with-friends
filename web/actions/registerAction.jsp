@@ -39,6 +39,11 @@
         session.setAttribute("appMessage", passwordError);
         validationsFail = true;
     }
+    
+    if (username.equals("") || email.equals("") || password.equals("")) {
+        session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
+        validationsFail = true;
+    }
 
     // ----------
     if (validationsFail) {

@@ -26,13 +26,6 @@
     String name = request.getParameter("name");
     String email = request.getParameter("email");
     
-    Reservation reservation = new Reservation(isbn, copyId, name, email);
-    
-    reservations.addOrSetReservation(isbn, copyId, reservation);
-    ac.commitReservationData(reservations);
-    
-    session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
-    
     // Validation
     boolean validationsFail = false;
 
@@ -47,6 +40,11 @@
         session.setAttribute("appMessage", emailError);
         validationsFail = true;
     }
+    
+    if (name.equals("") || email.equals("")) {
+        session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
+        validationsFail = true;
+    }
 
     // ----------
     
@@ -54,6 +52,11 @@
         response.sendRedirect(request.getHeader("Referer"));
     }
     else {
+        Reservation reservation = new Reservation(isbn, copyId, name, email);
+
+        reservations.addOrSetReservation(isbn, copyId, reservation);
+        ac.commitReservationData(reservations);
+        session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
         response.sendRedirect("../index.jsp");
     }
 %>

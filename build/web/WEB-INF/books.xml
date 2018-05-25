@@ -1,74 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
-<books
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="books.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<books>
     <book>
-        <isbn>978-3-16-158410-0</isbn>
-        <title>Star Wars</title>
-        <author>George R. R. Martin</author>
-        <description>When bilbo becomes an orphan, he is recruited to hogwarts.</description>
-        <category>Fantasy, Scifi</category>
         <bookCopy>
             <id>1</id>
             <condition>good</condition>
-            <lister>meme@meme.com</lister>
             <edition>5</edition>
-            <publisher>Penguin Books</publisher>
             <year>2015</year>
+            <publisher>Penguin Books</publisher>
+            <lister>meme@meme.com</lister>
         </bookCopy>
         <bookCopy>
             <id>2</id>
             <condition>poor</condition>
-            <lister>meme@meme.com</lister>
             <edition>5</edition>
-            <publisher>Penguin Books</publisher>
             <year>2015</year>
+            <publisher>Penguin Books</publisher>
+            <lister>meme@meme.com</lister>
         </bookCopy>
         <bookCopy>
             <id>3</id>
             <condition>meme</condition>
-            <lister>meme@meme.com</lister>
             <edition>5</edition>
-            <publisher>Penguin Books</publisher>
             <year>2015</year>
+            <publisher>Penguin Books</publisher>
+            <lister>meme@meme.com</lister>
         </bookCopy>
+        <isbn>978-3-16-158410-0</isbn>
+        <title>Star Wars</title>
+        <description>When bilbo becomes an orphan, he is recruited to hogwarts.</description>
+        <author>George R. R. Martin</author>
+        <category>Fantasy, Scifi</category>
     </book>
     <book>
-        <isbn>978-3-16-148410-0</isbn>
-        <title>The Name of the Wind</title>
-        <author>Patrick Rothfuss</author>
-        <description>Told in Kvothe's own voice, this is the tale of the magically gifted young man who grows to be the most notorious wizard his world has ever seen. The intimate narrative of his childhood in a troupe of traveling players, his years spent as a near-feral orphan in a crime-ridden city, his daringly brazen yet successful bid to enter a legendary school of magic, and his life as a fugitive after the murder of a king form a gripping coming-of-age story unrivaled in recent literature. A high-action story written with a poet's hand, The Name of the Wind is a masterpiece that will transport readers into the body and mind of a wizard.</description>
-        <category>Fantasy</category>
         <bookCopy>
             <id>1</id>
             <condition>Good</condition>
-            <lister>meme@meme.com</lister>
             <edition>5</edition>
-            <publisher>Penguin Books</publisher>
             <year>2015</year>
+            <publisher>Penguin Books</publisher>
+            <lister>meme@meme.com</lister>
         </bookCopy>
         <bookCopy>
             <id>2</id>
             <condition>Poor</condition>
-            <lister>meme@meme.com</lister>
             <edition>5</edition>
-            <publisher>Penguin Books</publisher>
             <year>2015</year>
+            <publisher>Penguin Books</publisher>
+            <lister>meme@meme.com</lister>
         </bookCopy>
         <bookCopy>
             <id>3</id>
             <condition>Vintage</condition>
-            <lister>laurencepresland@gmail.com</lister>
             <edition>5</edition>
-            <publisher>Penguin Books</publisher>
             <year>2015</year>
+            <publisher>Penguin Books</publisher>
+            <lister>laurencepresland@gmail.com</lister>
         </bookCopy>
+        <isbn>978-3-16-148410-0</isbn>
+        <title>The Name of the Wind</title>
+        <description>Told in Kvothe's own voice, this is the tale of the magically gifted young man who grows to be the most notorious wizard his world has ever seen. The intimate narrative of his childhood in a troupe of traveling players, his years spent as a near-feral orphan in a crime-ridden city, his daringly brazen yet successful bid to enter a legendary school of magic, and his life as a fugitive after the murder of a king form a gripping coming-of-age story unrivaled in recent literature. A high-action story written with a poet's hand, The Name of the Wind is a masterpiece that will transport readers into the body and mind of a wizard.</description>
+        <author>Patrick Rothfuss</author>
+        <category>Fantasy</category>
     </book>
 </books>
