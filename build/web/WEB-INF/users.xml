@@ -10,14 +10,4 @@
         <email>laurencepresland@gmail.com</email>
         <password>jeans</password>
     </lister>
-    <lister>
-        <username>up</username>
-        <email>up@up.com</email>
-        <password>up</password>
-    </lister>
-    <lister>
-        <username>Bon</username>
-        <email>bon@bon.com</email>
-        <password>bonbon</password>
-    </lister>
 </users>

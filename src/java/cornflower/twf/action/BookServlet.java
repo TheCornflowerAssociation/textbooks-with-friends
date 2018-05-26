@@ -59,19 +59,14 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
         Lister lister = (Lister) session.getAttribute("lister");
 
         Book book = books.getBook(isbn);
-        if (lister != null) {
-            // Remove the book
-            books.removeBook(book);
-            try {
-                ac.commitBookData(books);
-            } catch (Exception ex) {
-                session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
-                response.sendRedirect("../index.jsp");
-            }
-        }
-        else {
-            session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
-            response.sendRedirect(request.getHeader("Referer"));
+        
+        // Remove the book
+        books.removeBook(book);
+        try {
+            ac.commitBookData(books);
+        } catch (Exception ex) {
+            session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
+            response.sendRedirect("../index.jsp");
         }
 
         session.setAttribute("appMessage", new AppMessage("success", "Removed book \"" + book.getTitle() + "\" from listings"));
@@ -90,65 +85,59 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
 
         // Check if the user is logged in
         Lister lister = (Lister) session.getAttribute("lister");
-        if (lister != null) {
-            // Validation
-            boolean validationsFail = false;
+        // Validation
+        boolean validationsFail = false;
 
-            AppMessage isbnError = v.validIsbn(isbn);
-            if (isbnError != null) {
-                session.setAttribute("appMessage", isbnError);
-                validationsFail = true;
-            }
+        AppMessage isbnError = v.validIsbn(isbn);
+        if (isbnError != null) {
+            session.setAttribute("appMessage", isbnError);
+            validationsFail = true;
+        }
 
-            AppMessage titleError = v.validText(title);
-            if (titleError != null) {
-                session.setAttribute("appMessage", titleError);
-                validationsFail = true;
-            }
+        AppMessage titleError = v.validText(title);
+        if (titleError != null) {
+            session.setAttribute("appMessage", titleError);
+            validationsFail = true;
+        }
 
-            AppMessage descriptionError = v.validText(description);
-            if (descriptionError != null) {
-                session.setAttribute("appMessage", descriptionError);
-                validationsFail = true;
-            }
+        AppMessage descriptionError = v.validText(description);
+        if (descriptionError != null) {
+            session.setAttribute("appMessage", descriptionError);
+            validationsFail = true;
+        }
 
-            AppMessage authorError = v.validText(author);
-            if (authorError != null) {
-                session.setAttribute("appMessage", authorError);
-                validationsFail = true;
-            }
+        AppMessage authorError = v.validText(author);
+        if (authorError != null) {
+            session.setAttribute("appMessage", authorError);
+            validationsFail = true;
+        }
 
-            AppMessage categoryError = v.validText(category);
-            if (categoryError != null) {
-                session.setAttribute("appMessage", categoryError);
-                validationsFail = true;
-            }
+        AppMessage categoryError = v.validText(category);
+        if (categoryError != null) {
+            session.setAttribute("appMessage", categoryError);
+            validationsFail = true;
+        }
 
-            if (isbn.equals("") || title.equals("") || description.equals("") || author.equals("") || category.equals("")) {
-                session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
-                validationsFail = true;
-            }
+        if (isbn.equals("") || title.equals("") || description.equals("") || author.equals("") || category.equals("")) {
+            session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
+            validationsFail = true;
+        }
 
-            // ----------
-            if (validationsFail) {
-                response.sendRedirect(request.getHeader("Referer"));
-            } else {
-                Book book = new Book(isbn, title, author, description, category);
-                books.addBook(book);
-                try {
-                    ac.commitBookData(books);
-                } catch (Exception ex) {
-                    session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
-                    response.sendRedirect("../index.jsp");
-                }
-
-                session.setAttribute("appMessage", new AppMessage("success", "Added new book \"" + title + "\""));
+        // ----------
+        if (validationsFail) {
+            response.sendRedirect(request.getHeader("Referer"));
+        } else {
+            Book book = new Book(isbn, title, author, description, category);
+            books.addBook(book);
+            try {
+                ac.commitBookData(books);
+            } catch (Exception ex) {
+                session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
                 response.sendRedirect("../index.jsp");
             }
 
-        } else {
-            session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
-            response.sendRedirect(request.getHeader("Referer"));
+            session.setAttribute("appMessage", new AppMessage("success", "Added new book \"" + title + "\""));
+            response.sendRedirect("../index.jsp");
         }
     }
 }

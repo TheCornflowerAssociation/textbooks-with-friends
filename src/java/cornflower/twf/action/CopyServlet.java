@@ -52,9 +52,6 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
         if (action != null && action.equalsIgnoreCase("delete")) {
             doDestroy(request, response);
         }
-        else if (action != null && action.equalsIgnoreCase("reserve")) {
-            doReserve(request, response);
-        }
         else {
             doCreate(request, response);
         }
@@ -101,57 +98,6 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
         response.sendRedirect("../index.jsp");
     }
     
-    private void doReserve(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Reservations reservations = ac.getReservations();
-        Validator v = new Validator();
-
-
-        String isbn = request.getParameter("isbn");
-
-
-        int copyId = Integer.parseInt(request.getParameter("copyId"));
-
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-
-        // Validation
-        boolean validationsFail = false;
-
-        AppMessage nameError = v.validText(name);
-        if (nameError != null) {
-            session.setAttribute("appMessage", nameError);
-            validationsFail = true;
-        }
-
-        AppMessage emailError = v.validEmail(email);
-        if (emailError != null) {
-            session.setAttribute("appMessage", emailError);
-            validationsFail = true;
-        }
-
-        if (name.equals("") || email.equals("")) {
-            session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
-            validationsFail = true;
-        }
-
-        if (validationsFail) {
-            response.sendRedirect(request.getHeader("Referer"));
-        }
-        else {
-            Reservation reservation = new Reservation(isbn, copyId, name, email);
-
-            reservations.addOrSetReservation(isbn, copyId, reservation);
-            try {
-                ac.commitReservationData(reservations);
-            } catch (Exception ex) {
-                session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
-                response.sendRedirect("../index.jsp");
-            }
-            session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
-            response.sendRedirect("../index.jsp");
-        }
-    }
-    
     private void doCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Validator v = new Validator();
 
@@ -167,57 +113,49 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
             String publisher = request.getParameter("publisher");
             Lister lister = (Lister) session.getAttribute("lister");
 
-            // Check if the user is logged in
-            if (lister != null) {
-                // Validation
-                boolean validationsFail = false;
+            // Validation
+            boolean validationsFail = false;
 
-                AppMessage conditionError = v.validText(condition);
-                if (conditionError != null) {
-                    session.setAttribute("appMessage", conditionError);
-                    validationsFail = true;
-                }
+            AppMessage conditionError = v.validText(condition);
+            if (conditionError != null) {
+                session.setAttribute("appMessage", conditionError);
+                validationsFail = true;
+            }
 
-                AppMessage editionError = v.validNumber(String.valueOf(edition));
-                if (editionError != null) {
-                    session.setAttribute("appMessage", editionError);
-                    validationsFail = true;
-                }
+            AppMessage editionError = v.validNumber(String.valueOf(edition));
+            if (editionError != null) {
+                session.setAttribute("appMessage", editionError);
+                validationsFail = true;
+            }
 
-                AppMessage yearError = v.validYear(String.valueOf(year));
-                if (yearError != null) {
-                    session.setAttribute("appMessage", yearError);
-                    validationsFail = true;
-                }
+            AppMessage yearError = v.validYear(String.valueOf(year));
+            if (yearError != null) {
+                session.setAttribute("appMessage", yearError);
+                validationsFail = true;
+            }
 
-                AppMessage publisherError = v.validText(publisher);
-                if (publisherError != null) {
-                    session.setAttribute("appMessage", publisherError);
-                    validationsFail = true;
-                }
+            AppMessage publisherError = v.validText(publisher);
+            if (publisherError != null) {
+                session.setAttribute("appMessage", publisherError);
+                validationsFail = true;
+            }
 
-                if (condition.equals("") || edition == null || year == null || publisher.equals("")) {
-                    session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
-                    validationsFail = true;
-                }
+            if (condition.equals("") || edition == null || year == null || publisher.equals("")) {
+                session.setAttribute("appMessage", new AppMessage("danger", "Please fill in all required fields."));
+                validationsFail = true;
+            }
 
-                // ----------
-                if (validationsFail) {
-                    response.sendRedirect(request.getHeader("Referer"));
-                } else {
-                    // Add the copy
-                    BookCopy copy = new BookCopy(book.getNewId(), condition, edition, year, publisher, lister.getEmail());
-                    book.addBookCopy(copy);
-                    books.setBook(isbn, book);
-                    ac.commitBookData(books);
-
-                    session.setAttribute("appMessage", new AppMessage("success", "Added new book copy for \"" + book.getTitle() + "\""));
-                    response.sendRedirect("../index.jsp");
-                }
-
-            } else {
-                session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
+            if (validationsFail) {
                 response.sendRedirect(request.getHeader("Referer"));
+            } else {
+                // Add the copy
+                BookCopy copy = new BookCopy(book.getNewId(), condition, edition, year, publisher, lister.getEmail());
+                book.addBookCopy(copy);
+                books.setBook(isbn, book);
+                ac.commitBookData(books);
+
+                session.setAttribute("appMessage", new AppMessage("success", "Added new book copy for \"" + book.getTitle() + "\""));
+                response.sendRedirect("../index.jsp");
             }
         } catch (Exception e) {
             session.setAttribute("appMessage", new AppMessage("danger", "Some validations failed, this is the warning message"));
