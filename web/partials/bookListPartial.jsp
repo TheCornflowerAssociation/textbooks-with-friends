@@ -36,5 +36,8 @@
                 </li>
             <% } %>
         </ul>
+        <% if (booksList.size() < 1) { %>
+            <h5 class="text-center">No books to display</h5>
+        <% } %>
     </div>
 </div>

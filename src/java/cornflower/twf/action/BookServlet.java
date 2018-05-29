@@ -36,7 +36,7 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
             books = ac.getBooks();
         } catch (Exception ex) {
             session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong"));
-            response.sendRedirect("../index.jsp");
+            response.sendRedirect(request.getHeader("Referer"));
         }
     }
     
@@ -60,17 +60,24 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
 
         Book book = books.getBook(isbn);
         
-        // Remove the book
-        books.removeBook(book);
-        try {
-            ac.commitBookData(books);
-        } catch (Exception ex) {
-            session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
+        if (book.getBookCopiesAmount() > 0) {
+            session.setAttribute("appMessage", new AppMessage("warning", "Cannot remove books with active copy listings"));
+            response.sendRedirect(request.getHeader("Referer"));
+        }
+        else {
+        
+            // Remove the book
+            books.removeBook(book);
+            try {
+                ac.commitBookData(books);
+            } catch (Exception ex) {
+                session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
+                response.sendRedirect(request.getHeader("Referer"));
+            }
+
+            session.setAttribute("appMessage", new AppMessage("success", "Removed book \"" + book.getTitle() + "\" from listings"));
             response.sendRedirect("../index.jsp");
         }
-
-        session.setAttribute("appMessage", new AppMessage("success", "Removed book \"" + book.getTitle() + "\" from listings"));
-        response.sendRedirect("../index.jsp");
     }
     
     private void doCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -123,7 +130,6 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
             validationsFail = true;
         }
 
-        // ----------
         if (validationsFail) {
             response.sendRedirect(request.getHeader("Referer"));
         } else {

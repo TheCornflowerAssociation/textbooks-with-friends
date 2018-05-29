@@ -25,32 +25,19 @@
         else {
             copies = book.getBookCopies();
         }
+        
+        book.setBookCopies(copies);
 %>
-<div class="card">
-    <h4 class="card-header"><%= book.getTitle() %></h4>
-    <div class="card-body">
-        <h5 class="card-title">
-            by <%= book.getAuthor() %> | 
-            <%@include file="categoriesPartial.jsp" %>
-        </h5>
-        <p class="card-text"><b>ISBN:</b> <%= book.getIsbn() %></p>
-        <p class="card-text"><b>Description:</b> <%= book.getDescription() %></p>
-        <br>
-        
-        <%@include file="copyListPartial.jsp" %>
-        
-        <% if (currentUser != null) { %>
-        <a class="btn btn-primary float-right" href="form.jsp?form=add_copy&isbn=<%= book.getIsbn() %>">Add Copy</a>
-            <% if (copies.size() <= 0) { %>
-                <form action="<%= request.getContextPath() %>/action/book" method="post">
-                    <input type="hidden" name="action" value="delete"/>
-                    <input type="hidden" name="isbn" value="<%= book.getIsbn() %>">
-                    <button type="submit" name="submit" class="btn btn-danger">Remove Book</button>
-                </form>
-            <% }
-           } %>
-    </div>
-</div>
+<%
+    StringWriter bookXmlText = XmlFetcher.getBook(book);
+%>
+
+<c:set var = "bookXml">
+    <%= bookXmlText %>
+</c:set>
+
+<c:import url="/WEB-INF/book.xsl" var="xslt"/>
+<x:transform xml="${bookXml}" xslt="${xslt}"/>
 <%
     } else {
 %>

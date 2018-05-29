@@ -88,14 +88,14 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
                 session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
                 response.sendRedirect("../index.jsp");
             }
+            
+            session.setAttribute("appMessage", new AppMessage("success", "Removed book copy #" + copyId + " for \"" + book.getTitle() + "\""));
+            response.sendRedirect(request.getHeader("Referer"));
         }
         else {
             session.setAttribute("appMessage", new AppMessage("warning", "You may only delete copies you have listed"));
             response.sendRedirect(request.getHeader("Referer"));
         }
-
-        session.setAttribute("appMessage", new AppMessage("success", "Removed book copy #" + copyId + " for \"" + book.getTitle() + "\""));
-        response.sendRedirect("../index.jsp");
     }
     
     private void doCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {

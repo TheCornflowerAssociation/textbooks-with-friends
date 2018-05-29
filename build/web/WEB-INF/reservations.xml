@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="reservations.xsl"?>
-<reservations
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="reservations.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reservations>
     <reservation>
         <isbn>1</isbn>
         <copyId>1</copyId>
         <name>Presland Boy</name>
         <email>pboy@presland.com</email>
+    </reservation>
+    <reservation>
+        <isbn>978-3-16-158410-0</isbn>
+        <copyId>1</copyId>
+        <name>Jonathan Moallem</name>
+        <email>jdmoallem@gmail.com</email>
     </reservation>
 </reservations>

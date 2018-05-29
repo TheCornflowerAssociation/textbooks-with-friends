@@ -6,12 +6,12 @@
 <%@page import="cornflower.twf.utils.XmlFetcher"%>
 <%@page import="java.io.StringWriter"%>
 <%
-    StringWriter xmlString = XmlFetcher.getCopiesList(copies, book.getIsbn());
+    StringWriter copyXmlText = XmlFetcher.getCopiesList(copies, book.getIsbn());
 %>
 
-<c:set var = "xmltext">
-    <%= xmlString %>
+<c:set var = "copyXml">
+    <%= copyXmlText %>
 </c:set>
 
 <c:import url="/WEB-INF/bookCopies.xsl" var="xslt"/>
-<x:transform xml="${xmltext}" xslt="${xslt}"/>
+<x:transform xml="${copyXml}" xslt="${xslt}"/>

@@ -34,6 +34,19 @@ public class XmlFetcher {
         return sw;
     }
     
+    public static StringWriter getBook(Book book) throws JAXBException {
+        Books fakebooks = new Books();
+        fakebooks.addBook(book);
+        StringWriter sw = new StringWriter();
+
+        // Boilerplate code to convert objects to XML...
+        JAXBContext jc = JAXBContext.newInstance(Book.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        m.marshal(fakebooks, sw);
+        return sw;
+    }
+    
     public static StringWriter getCopiesList(ArrayList<BookCopy> copies, String isbn) throws JAXBException {
         Book fakebook = new Book();
         fakebook.setIsbn(isbn);

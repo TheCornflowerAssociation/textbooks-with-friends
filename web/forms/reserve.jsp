@@ -11,7 +11,7 @@
     Reservation reservation = ac.getReservations().getReservation(request.getParameter("isbn"), Integer.parseInt(request.getParameter("copyId")));
     if (reservation != null) {
         session.setAttribute("appMessage", new AppMessage("warning", "This book is already reserved for " + reservation.getName()));
-        response.sendRedirect("index.jsp");
+        response.sendRedirect(request.getHeader("Referer"));
     }
 %>
 <form action="<%= request.getContextPath() %>/action/reservation" method="post">

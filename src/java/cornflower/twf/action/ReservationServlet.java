@@ -37,7 +37,7 @@ public class ReservationServlet extends javax.servlet.http.HttpServlet {
             session = request.getSession();
         } catch (Exception ex) {
             session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong"));
-            response.sendRedirect("../index.jsp");
+            response.sendRedirect(request.getHeader("Referer"));
         }
     }
     
@@ -90,10 +90,10 @@ public class ReservationServlet extends javax.servlet.http.HttpServlet {
                 ac.commitReservationData(reservations);
             } catch (Exception ex) {
                 session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
-                response.sendRedirect("../index.jsp");
+                response.sendRedirect(request.getHeader("Referer"));
             }
             session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
-            response.sendRedirect("../index.jsp");
+            response.sendRedirect(request.getHeader("Referer"));
         }
     }
 }

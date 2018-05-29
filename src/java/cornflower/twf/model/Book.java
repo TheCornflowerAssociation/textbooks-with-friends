@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  *
@@ -19,6 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
+@XmlSeeAlso({Books.class})
 public class Book implements Serializable {
     @XmlElement(name="bookCopy")
     private ArrayList<BookCopy> bookCopies = new ArrayList<BookCopy>();
@@ -62,6 +64,10 @@ public class Book implements Serializable {
 
     public ArrayList<BookCopy> getBookCopies() {
         return bookCopies;
+    }
+    
+    public int getBookCopiesAmount() {
+        return bookCopies.size();
     }
     
     public ArrayList<BookCopy> getCopiesByLister(String email) {
