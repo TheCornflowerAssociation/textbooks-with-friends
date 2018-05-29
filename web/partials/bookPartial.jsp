@@ -4,6 +4,8 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.XmlFetcher"%>
+<%@page import="java.io.StringWriter"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
@@ -34,37 +36,9 @@
         <p class="card-text"><b>ISBN:</b> <%= book.getIsbn() %></p>
         <p class="card-text"><b>Description:</b> <%= book.getDescription() %></p>
         <br>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Condition</th>
-                    <th scope="col">Edition</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Year</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Lister</th>
-                    <% if (currentUser != null) { %>
-                        <th scope="col">Options</th>
-                    <% } %>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (BookCopy copy : copies) {
-                %>
-                    <%@include file="copyItemPartial.jsp" %>
-                <%
-                    }
-
-                    if (copies.size() <= 0) {
-                %>
-                    <tr><td><p>No copies to display</p></td></tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
+        
+        <%@include file="copyListPartial.jsp" %>
+        
         <% if (currentUser != null) { %>
         <a class="btn btn-primary float-right" href="form.jsp?form=add_copy&isbn=<%= book.getIsbn() %>">Add Copy</a>
             <% if (copies.size() <= 0) { %>

@@ -4,6 +4,10 @@
     Author     : J-Mo
 --%>
 
+<%@page import="cornflower.twf.utils.XmlFetcher"%>
+<%@page import="java.io.StringWriter"%>
+<%@page import="javax.xml.bind.Marshaller"%>
+<%@page import="javax.xml.bind.JAXBContext"%>
 <%@page import="cornflower.twf.model.Reservations"%>
 <%@page import="cornflower.twf.model.Book"%>
 <%@page import="cornflower.twf.model.Books"%>
@@ -20,6 +24,8 @@
     Reservations reservations = ac.getReservations();
 %>
 <html>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
     <%@include file="layouts/header.jsp" %>
     <body style="background-color: #f2f2f2">
         <%@include file="layouts/navbar.jsp" %>
