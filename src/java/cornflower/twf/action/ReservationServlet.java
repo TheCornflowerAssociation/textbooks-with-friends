@@ -62,7 +62,7 @@ public class ReservationServlet extends javax.servlet.http.HttpServlet {
         // Validation
         boolean validationsFail = false;
 
-        AppMessage nameError = v.validText(name);
+        AppMessage nameError = v.validText(name, "name");
         if (nameError != null) {
             session.setAttribute("appMessage", nameError);
             validationsFail = true;

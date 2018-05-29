@@ -19,11 +19,11 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsgen-SOAP" depends="wsgen-init">
+    <target name="wsgen-TextbooksService" depends="wsgen-init">
         <copy todir="${build.classes.dir}/META-INF">
-            <fileset dir="${webinf.dir}" includes="wsit-cornflower.twf.soap.SOAP.xml"/>
+            <fileset dir="${webinf.dir}" includes="wsit-cornflower.twf.soap.TextbooksService.xml"/>
         </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="cornflower.twf.soap.SOAP" xendorsed="true">
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="cornflower.twf.soap.TextbooksService" xendorsed="true">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
@@ -32,4 +32,32 @@
                 JAX-WS WSIMPORT SECTION
                 ===================
             -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-TextbooksService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/TextbooksService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/TextbooksService" destdir="${build.generated.dir}/jax-wsCache/TextbooksService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/TextbooksService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/textbooks-with-friends/TextbooksService?wsdl" xnocompile="true" xendorsed="true" package="cornflower.twf.soap.client">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/TextbooksService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/TextbooksService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/TextbooksService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-TextbooksService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cornflower/twf/soap/client"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/TextbooksService"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-TextbooksService"/>
 </project>
