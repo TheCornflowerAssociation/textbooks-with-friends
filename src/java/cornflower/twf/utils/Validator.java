@@ -47,16 +47,16 @@ public class Validator implements Serializable {
         return null;
     }
     
-    public AppMessage validText(String input) {
+    public AppMessage validText(String input, String type) {
         if (!textPattern.matcher(input).find()) {
-            return new AppMessage("danger", "You have entered invalid text. Please make sure the information you have entered is correct.");
+            return new AppMessage("danger", "You have entered invalid text in the " + type + " field. Please make sure the information you have entered is correct.");
         }
         return null;
     }
     
-    public AppMessage validNumber(String input) {
+    public AppMessage validNumber(String input, String type) {
         if (!numberPattern.matcher(input).find()) {
-            return new AppMessage("danger", "You have entered an invalid number. Please make sure the information you have entered is correct.");
+            return new AppMessage("danger", "You have entered an invalid number in the " + type + " field. Please make sure the information you have entered is correct.");
         }
         return null;
     }

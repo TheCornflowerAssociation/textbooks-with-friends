@@ -101,25 +101,25 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
             validationsFail = true;
         }
 
-        AppMessage titleError = v.validText(title);
+        AppMessage titleError = v.validText(title, "title");
         if (titleError != null) {
             session.setAttribute("appMessage", titleError);
             validationsFail = true;
         }
 
-        AppMessage descriptionError = v.validText(description);
+        AppMessage descriptionError = v.validText(description, "description");
         if (descriptionError != null) {
             session.setAttribute("appMessage", descriptionError);
             validationsFail = true;
         }
 
-        AppMessage authorError = v.validText(author);
+        AppMessage authorError = v.validText(author, "author");
         if (authorError != null) {
             session.setAttribute("appMessage", authorError);
             validationsFail = true;
         }
 
-        AppMessage categoryError = v.validText(category);
+        AppMessage categoryError = v.validText(category, "category");
         if (categoryError != null) {
             session.setAttribute("appMessage", categoryError);
             validationsFail = true;

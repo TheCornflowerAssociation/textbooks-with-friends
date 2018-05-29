@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/textbooks-with-friends/soap/TextbooksService?wsdl" uri="src/conf/xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/soap/TextbooksService.wsdl"/>
+    <system systemId="http://localhost:8080/textbooks-with-friends/soap/TextbooksService?xsd=1" uri="src/conf/xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/soap/TextbooksService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/textbooks-with-friends/TextbooksService" uri="src/conf/xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/TextbooksService.xml"/>
+    <system systemId="http://localhost:8080/textbooks-with-friends/TextbooksService?wsdl" uri="src/conf/xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/TextbooksService.wsdl"/>
+    <system systemId="http://localhost:8080/textbooks-with-friends/TextbooksService?xsd=1" uri="src/conf/xml-resources/web-service-references/TextbooksService/wsdl/localhost_8080/textbooks-with-friends/TextbooksService.xsd_1.xsd"/>
+</catalog>

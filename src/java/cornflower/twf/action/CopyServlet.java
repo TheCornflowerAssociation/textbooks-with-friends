@@ -116,27 +116,27 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
             // Validation
             boolean validationsFail = false;
 
-            AppMessage conditionError = v.validText(condition);
-            if (conditionError != null) {
-                session.setAttribute("appMessage", conditionError);
+            AppMessage publisherError = v.validText(publisher, "publisher");
+            if (publisherError != null) {
+                session.setAttribute("appMessage", publisherError);
                 validationsFail = true;
             }
-
-            AppMessage editionError = v.validNumber(String.valueOf(edition));
-            if (editionError != null) {
-                session.setAttribute("appMessage", editionError);
-                validationsFail = true;
-            }
-
+            
             AppMessage yearError = v.validYear(String.valueOf(year));
             if (yearError != null) {
                 session.setAttribute("appMessage", yearError);
                 validationsFail = true;
             }
-
-            AppMessage publisherError = v.validText(publisher);
-            if (publisherError != null) {
-                session.setAttribute("appMessage", publisherError);
+            
+            AppMessage editionError = v.validNumber(String.valueOf(edition), "edition");
+            if (editionError != null) {
+                session.setAttribute("appMessage", editionError);
+                validationsFail = true;
+            }
+            
+            AppMessage conditionError = v.validText(condition, "condition");
+            if (conditionError != null) {
+                session.setAttribute("appMessage", conditionError);
                 validationsFail = true;
             }
 
