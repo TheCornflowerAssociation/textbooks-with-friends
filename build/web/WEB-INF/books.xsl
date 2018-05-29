@@ -16,85 +16,19 @@
     <!-- TODO customize transformation rules 
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
-    <xsl:template match="/">
-        <html>
-            <head>
-                <style>
-                    h2{
-                        text-align:center;
-                    }  
-                </style>
-            </head>
-            <body>
-                <h2>Books</h2>
-                <xsl:apply-templates/>
-            </body>
-        </html>
-    </xsl:template>
     
-    <xsl:template match="books">
-        <table border = "1" align ="center">
-            <thead>
-                <tr>
-                    <th>ISBN</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>BookCopy</th>
-                </tr>
-            </thead>
-            
-            <tbody>
-                <xsl:apply-templates/>
-            </tbody>
-        </table>
-    </xsl:template>
     
     <xsl:template match="book">
-        <tr>
-            <td>
-                <xsl:value-of select="isbn" />
-            </td>
-            <td>
-                <xsl:value-of select="title" />
-            </td>  
-            <td>
-                <xsl:value-of select="author" />
-            </td>
-            <td>
-                <xsl:value-of select="description" />
-            </td>
-            <td>
-                <xsl:value-of select="category" />
-            </td>  
-            <td>
-                <xsl:value-of select="bookCopy" />
-            </td>                      
-        </tr>   
-    </xsl:template>
-    
-    <xsl:template match="bookCopy">
-        <tr>
-            <td>
-                <xsl:value-of select="id" />
-            </td>
-            <td>
-                <xsl:value-of select="condition" />
-            </td>  
-            <td>
-                <xsl:value-of select="lister" />
-            </td>
-            <td>
-                <xsl:value-of select="edition" />
-            </td>
-            <td>
-                <xsl:value-of select="publisher" />
-            </td> 
-            <td>
-                <xsl:value-of select="years" />
-            </td> 
-        </tr>              
+        <li class="list-group-item">
+            <xsl:element name="a">
+                <xsl:attribute name="href">
+                    <xsl:text disable-output-escaping="yes"><![CDATA[index.jsp?<%= filter != null ? "filter=" + filter : "" %>&isbn=]]></xsl:text>
+                    <xsl:value-of select="isbn"/>
+                </xsl:attribute>
+                <xsl:value-of select="title"/>
+            </xsl:element>
+            <p>by <xsl:value-of select="author"/></p>
+        </li> 
     </xsl:template>
 
 </xsl:stylesheet>

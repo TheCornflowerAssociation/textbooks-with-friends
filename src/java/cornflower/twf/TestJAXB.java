@@ -28,6 +28,7 @@ public class TestJAXB implements Serializable {
   BookCopy bookCopy = new BookCopy(1, "good", 1, 2007, "DAW Media", "laurencepresland@gmail.com");
   
   Book starWars = new Book("978-3-16-148410-0", "Star Wars", "George R. R. Martin", "When bilbo becomes an orphan, he is recruited to hogwarts.", "Fantasy");
+  Book barwars = new Book("978-3-16-148410-0", "Star Wars", "George R. R. Martin", "When bilbo becomes an orphan, he is recruited to hogwarts.", "Fantasy");
   
   Books shelf = new Books();
   
@@ -44,6 +45,7 @@ public class TestJAXB implements Serializable {
   
   starWars.addBookCopy(bookCopy);
   shelf.addBook(starWars);
+  shelf.addBook(barwars);
   users.addUser(laurence);
   
   TextbookSystem system = new TextbookSystem();
@@ -53,9 +55,9 @@ public class TestJAXB implements Serializable {
   system.setReservations(reservations);
   
   // Boilerplate code to convert objects to XML...
-  JAXBContext jc = JAXBContext.newInstance(TextbookSystem.class);
+  JAXBContext jc = JAXBContext.newInstance(Books.class);
   Marshaller m = jc.createMarshaller();
   m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-  m.marshal(system, java.lang.System.out);
+  m.marshal(shelf, java.lang.System.out);
  }
 }

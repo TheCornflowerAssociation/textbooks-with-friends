@@ -3,6 +3,17 @@
     Created on : 27/04/2018, 7:47:30 PM
     Author     : J-Mo
 --%>
+<%@page import="cornflower.twf.utils.AppMessage"%>
+<%@page import="cornflower.twf.model.Reservations"%>
+<%@page import="cornflower.twf.utils.ActionController"%>
+<%@page import="cornflower.twf.model.Reservation"%>
+<% 
+    Reservation reservation = ac.getReservations().getReservation(request.getParameter("isbn"), Integer.parseInt(request.getParameter("copyId")));
+    if (reservation != null) {
+        session.setAttribute("appMessage", new AppMessage("warning", "This book is already reserved for " + reservation.getName()));
+        response.sendRedirect("index.jsp");
+    }
+%>
 <form action="<%= request.getContextPath() %>/action/reservation" method="post">
     <input type="hidden" name="action" value="reserve"/>
     <input id="reserveModalIsbn" type="hidden" name="isbn" value="<%= request.getParameter("isbn") %>">
