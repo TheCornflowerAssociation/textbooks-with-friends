@@ -4,7 +4,7 @@
     Author     : J-Mo
 --%>
 
-<%@page import="cornflower.twf.utils.XmlFetcher"%>
+<%@page import="cornflower.twf.utils.XmlParser"%>
 <%@page import="java.io.StringWriter"%>
 <%@page import="javax.xml.bind.Marshaller"%>
 <%@page import="javax.xml.bind.JAXBContext"%>

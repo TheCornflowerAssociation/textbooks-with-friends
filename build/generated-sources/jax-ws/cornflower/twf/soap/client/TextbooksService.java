@@ -30,8 +30,8 @@ public interface TextbooksService {
      * 
      * @return
      *     returns java.util.List<cornflower.twf.soap.client.Book>
-     * @throws IOException_Exception
      * @throws Exception_Exception
+     * @throws IOException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -87,9 +87,9 @@ public interface TextbooksService {
      * @param arg8
      * @return
      *     returns java.lang.String
+     * @throws Exception_Exception
      * @throws JAXBException_Exception
      * @throws IOException_Exception
-     * @throws Exception_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")

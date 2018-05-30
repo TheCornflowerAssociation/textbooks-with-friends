@@ -32,7 +32,7 @@
         book.setBookCopies(copies);
         
         // Get the xml for the book using the parser
-        StringWriter bookXmlText = XmlParser.getBook(book);
+        StringWriter bookXmlText = XmlParser.parseBook(book);
 %>
 
     <!--Create an XML variable to pass with the XSL file-->
