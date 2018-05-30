@@ -21,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * A servlet class for the bookcopy object that services the /action/copy route.
+ * 
  * @author J-Mo
  */
 @WebServlet("/action/copy")
@@ -32,6 +33,14 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
     HttpSession session;
     Books books;
     
+    /**
+     * A helper method that sets up the fields before jumping into the request
+     * action. Also reroutes in the case of an exception.
+     * 
+     * @param request - the request object
+     * @param response - the response object
+     * @throws IOException - excepts null referrer status 
+     */
     private void setFields(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             ac = new ActionController(request.getServletContext());
@@ -57,6 +66,13 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
         }
     }
     
+    /**
+     * A helper method that runs the actions for a destroy request.
+     * 
+     * @param request - the request object
+     * @param response - the response object
+     * @throws IOException - excepts null referrer status
+     */
     private void doDestroy(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Reservations reservations = ac.getReservations();
 
@@ -98,6 +114,13 @@ public class CopyServlet extends javax.servlet.http.HttpServlet {
         }
     }
     
+    /**
+     * A helper method that runs the actions for a create request.
+     * 
+     * @param request - the request object
+     * @param response - the response object
+     * @throws IOException - excepts null referrer status
+     */
     private void doCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Validator v = new Validator();
 
