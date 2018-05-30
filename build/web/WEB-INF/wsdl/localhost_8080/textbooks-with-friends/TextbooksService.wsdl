@@ -4,17 +4,26 @@
 <xsd:import namespace="http://soap.twf.cornflower/" schemaLocation="http://localhost:8080/textbooks-with-friends/TextbooksService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="listBook">
+<part name="parameters" element="tns:listBook"/>
+</message>
+<message name="listBookResponse">
+<part name="parameters" element="tns:listBookResponse"/>
+</message>
+<message name="IOException">
+<part name="fault" element="tns:IOException"/>
+</message>
+<message name="JAXBException">
+<part name="fault" element="tns:JAXBException"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
 <message name="fetchBooks">
 <part name="parameters" element="tns:fetchBooks"/>
 </message>
 <message name="fetchBooksResponse">
 <part name="parameters" element="tns:fetchBooksResponse"/>
-</message>
-<message name="IOException">
-<part name="fault" element="tns:IOException"/>
-</message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"/>
 </message>
 <message name="deleteBook">
 <part name="parameters" element="tns:deleteBook"/>
@@ -22,16 +31,14 @@
 <message name="deleteBookResponse">
 <part name="parameters" element="tns:deleteBookResponse"/>
 </message>
-<message name="listBook">
-<part name="parameters" element="tns:listBook"/>
-</message>
-<message name="listBookResponse">
-<part name="parameters" element="tns:listBookResponse"/>
-</message>
-<message name="JAXBException">
-<part name="fault" element="tns:JAXBException"/>
-</message>
 <portType name="TextbooksService">
+<operation name="listBook">
+<input wsam:Action="http://soap.twf.cornflower/TextbooksService/listBookRequest" message="tns:listBook"/>
+<output wsam:Action="http://soap.twf.cornflower/TextbooksService/listBookResponse" message="tns:listBookResponse"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.twf.cornflower/TextbooksService/listBook/Fault/IOException"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.twf.cornflower/TextbooksService/listBook/Fault/JAXBException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.twf.cornflower/TextbooksService/listBook/Fault/Exception"/>
+</operation>
 <operation name="fetchBooks">
 <input wsam:Action="http://soap.twf.cornflower/TextbooksService/fetchBooksRequest" message="tns:fetchBooks"/>
 <output wsam:Action="http://soap.twf.cornflower/TextbooksService/fetchBooksResponse" message="tns:fetchBooksResponse"/>
@@ -43,43 +50,9 @@
 <output wsam:Action="http://soap.twf.cornflower/TextbooksService/deleteBookResponse" message="tns:deleteBookResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://soap.twf.cornflower/TextbooksService/deleteBook/Fault/Exception"/>
 </operation>
-<operation name="listBook">
-<input wsam:Action="http://soap.twf.cornflower/TextbooksService/listBookRequest" message="tns:listBook"/>
-<output wsam:Action="http://soap.twf.cornflower/TextbooksService/listBookResponse" message="tns:listBookResponse"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.twf.cornflower/TextbooksService/listBook/Fault/IOException"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.twf.cornflower/TextbooksService/listBook/Fault/JAXBException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.twf.cornflower/TextbooksService/listBook/Fault/Exception"/>
-</operation>
 </portType>
 <binding name="TextbooksServicePortBinding" type="tns:TextbooksService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="fetchBooks">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="IOException">
-<soap:fault name="IOException" use="literal"/>
-</fault>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="deleteBook">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
 <operation name="listBook">
 <soap:operation soapAction=""/>
 <input>
@@ -94,6 +67,33 @@
 <fault name="JAXBException">
 <soap:fault name="JAXBException" use="literal"/>
 </fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="fetchBooks">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="IOException">
+<soap:fault name="IOException" use="literal"/>
+</fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="deleteBook">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 <fault name="Exception">
 <soap:fault name="Exception" use="literal"/>
 </fault>

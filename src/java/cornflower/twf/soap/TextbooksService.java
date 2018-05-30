@@ -64,6 +64,26 @@ public class TextbooksService {
         return false;
     }
     
+    /**
+     * List a new book
+     *
+     * @param email - The email of the user attempting to list the book
+     * @param password - The password of the user attempting to list the book
+     * @param isbn - The ISBN of the book
+     * @param title - The title of the book
+     * @param description - The description of the book
+     * @param author - The author of the book
+     * @param category - The category of the book
+     * @param condition - The condition of the book
+     * @param edition - The edition of the book
+     * @param year - The year the book was published
+     * @param publisher - The publisher of the book
+     * @param lister - The email of the person who listed the book
+     * @return
+     * @throws IOException
+     * @throws JAXBException
+     * @throws Exception
+     */
     @WebMethod
     public String listBook(String email, String password, String isbn, String title, String description, String author, String category, String condition, int edition, int year, String publisher, String lister) throws IOException, JAXBException, Exception {
         Book book = new Book(isbn, title, author, description, category);
@@ -80,12 +100,28 @@ public class TextbooksService {
         return null;
     }
     
+    /**
+     * Fetch a list of all bookCopy objects
+     *
+     * @return
+     * @throws IOException
+     * @throws Exception
+     */
     @WebMethod
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Book> fetchBooks() throws IOException, Exception {
        return getTextbookApp().getBooks().getBooks();
     }
     
+    /**
+     * Delete a specific book from the database
+     *
+     * @param email - The email of the user attempting to delete the book
+     * @param password - The password of the user attempting to delete the book
+     * @param isbn - The ISBN of the book to delete
+     * @return
+     * @throws Exception
+     */
     @WebMethod
     public boolean deleteBook(String email, String password, String isbn) throws Exception {
         Book book = getTextbookApp().getBooks().getBook(isbn);

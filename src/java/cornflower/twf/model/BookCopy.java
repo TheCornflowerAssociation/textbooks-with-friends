@@ -26,6 +26,16 @@ public class BookCopy implements Serializable {
     private String publisher;
     private String lister;
 
+    /**
+     * A constructor for a bookCopy
+     *
+     * @param id - The unique ID of the bookCopy
+     * @param condition - The condition of the bookCopy
+     * @param edition - The edition of the bookCopy
+     * @param year - The year of publishing of the bookCopy
+     * @param publisher - The publisher of the bookCopy
+     * @param lister - The lister of the bookCopy
+     */
     public BookCopy(int id, String condition, int edition, int year, String publisher, String lister) {
         this.id = id;
         this.condition = condition;
@@ -35,55 +45,120 @@ public class BookCopy implements Serializable {
         this.lister = lister;
     }
     
+    /**
+     * A constructor for a bookCopy
+     *
+     */
     public BookCopy() {
         super();
     }
     
+    /**
+     * Get the ID of the bookCopy
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Get the condition of the bookCopy
+     *
+     * @return
+     */
     public String getCondition() {
         return condition;
     }
 
+    /**
+     * Set the condition of the bookCopy
+     *
+     * @param condition - The new condition
+     */
     public void setCondition(String condition) {
         this.condition = condition;
     }
     
+    /**
+     * Get the edition of the bookCopy
+     *
+     * @return
+     */
     public Integer getEdition() {
         return edition;
     }
 
+    /**
+     * Set the edition of the bookCopy
+     *
+     * @param edition - The new edition
+     */
     public void setEdition(Integer edition) {
         this.edition = edition;
     }
 
+    /**
+     * Get the year of the bookCopy
+     *
+     * @return
+     */
     public Integer getYear() {
         return year;
     }
 
+    /**
+     * Set the year of the bookCopy
+     *
+     * @param year - The new year
+     */
     public void setYear(Integer year) {
         this.year = year;
     }
     
+    /**
+     * Get the publisher of the bookCopy
+     *
+     * @return
+     */
     public String getPublisher() {
         return publisher;
     }
 
+    /**
+     * Set the publisher of the bookCopy
+     *
+     * @param publisher = The new publisher
+     */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 
+    /**
+     * Get the lister of the bookCopy
+     *
+     * @return
+     */
     public String getLister() {
         return lister;
     }
 
+    /**
+     * Set the lister of the bookCopy
+     *
+     * @param lister - The new lister
+     */
     public void setLister(String lister) {
         this.lister = lister;
     }
     
-    boolean hasLister(String email) {
+    /**
+     * Check if the lister of the bookCopy matches a given lister
+     *
+     * @param email - The email of the lister to check
+     * @return
+     */
+    public boolean hasLister(String email) {
         return lister.equals(email);
     }
     

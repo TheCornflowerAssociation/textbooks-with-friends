@@ -28,10 +28,67 @@ public interface TextbooksService {
 
     /**
      * 
+     * @param arg3
+     * @param arg2
+     * @param arg5
+     * @param arg4
+     * @param arg1
+     * @param arg0
+     * @param arg10
+     * @param arg11
+     * @param arg7
+     * @param arg6
+     * @param arg9
+     * @param arg8
+     * @return
+     *     returns java.lang.String
+     * @throws IOException_Exception
+     * @throws JAXBException_Exception
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listBook", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.ListBook")
+    @ResponseWrapper(localName = "listBookResponse", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.ListBookResponse")
+    @Action(input = "http://soap.twf.cornflower/TextbooksService/listBookRequest", output = "http://soap.twf.cornflower/TextbooksService/listBookResponse", fault = {
+        @FaultAction(className = IOException_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/listBook/Fault/IOException"),
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/listBook/Fault/JAXBException"),
+        @FaultAction(className = Exception_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/listBook/Fault/Exception")
+    })
+    public String listBook(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        String arg4,
+        @WebParam(name = "arg5", targetNamespace = "")
+        String arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        String arg6,
+        @WebParam(name = "arg7", targetNamespace = "")
+        String arg7,
+        @WebParam(name = "arg8", targetNamespace = "")
+        int arg8,
+        @WebParam(name = "arg9", targetNamespace = "")
+        int arg9,
+        @WebParam(name = "arg10", targetNamespace = "")
+        String arg10,
+        @WebParam(name = "arg11", targetNamespace = "")
+        String arg11)
+        throws Exception_Exception, IOException_Exception, JAXBException_Exception
+    ;
+
+    /**
+     * 
      * @return
      *     returns java.util.List<cornflower.twf.soap.client.Book>
-     * @throws Exception_Exception
      * @throws IOException_Exception
+     * @throws Exception_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -69,63 +126,6 @@ public interface TextbooksService {
         @WebParam(name = "arg2", targetNamespace = "")
         String arg2)
         throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
-     * @param arg5
-     * @param arg4
-     * @param arg1
-     * @param arg0
-     * @param arg10
-     * @param arg11
-     * @param arg7
-     * @param arg6
-     * @param arg9
-     * @param arg8
-     * @return
-     *     returns java.lang.String
-     * @throws Exception_Exception
-     * @throws JAXBException_Exception
-     * @throws IOException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listBook", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.ListBook")
-    @ResponseWrapper(localName = "listBookResponse", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.ListBookResponse")
-    @Action(input = "http://soap.twf.cornflower/TextbooksService/listBookRequest", output = "http://soap.twf.cornflower/TextbooksService/listBookResponse", fault = {
-        @FaultAction(className = IOException_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/listBook/Fault/IOException"),
-        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/listBook/Fault/JAXBException"),
-        @FaultAction(className = Exception_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/listBook/Fault/Exception")
-    })
-    public String listBook(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        String arg4,
-        @WebParam(name = "arg5", targetNamespace = "")
-        String arg5,
-        @WebParam(name = "arg6", targetNamespace = "")
-        String arg6,
-        @WebParam(name = "arg7", targetNamespace = "")
-        String arg7,
-        @WebParam(name = "arg8", targetNamespace = "")
-        int arg8,
-        @WebParam(name = "arg9", targetNamespace = "")
-        int arg9,
-        @WebParam(name = "arg10", targetNamespace = "")
-        String arg10,
-        @WebParam(name = "arg11", targetNamespace = "")
-        String arg11)
-        throws Exception_Exception, IOException_Exception, JAXBException_Exception
     ;
 
 }

@@ -47,6 +47,16 @@ public class TextbooksService {
         }
     }
 
+    /**
+     * Generates an XML list of the books
+     *
+     * @param username - The username of the lister
+     * @param status - The reservation status of the book (reserved or unreserved)
+     * @param condition - The condition of the book
+     * @return
+     * @throws IOException
+     * @throws Exception
+     */
     @Path("/listBooks")
     @GET
     @Produces(MediaType.APPLICATION_XML)

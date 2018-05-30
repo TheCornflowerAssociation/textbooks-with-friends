@@ -24,14 +24,29 @@ public class Books implements Serializable {
     @XmlElement(name="book")
     private ArrayList<Book> books = new ArrayList<Book>();
     
+    /**
+     * A constructor for the Books object
+     *
+     */
     public Books() {
         super();
     }
     
+    /**
+     * A constructor for the Books object
+     *
+     * @param books - The list of Books
+     */
     public Books(ArrayList<Book> books) {
         this.books = books;
     }
     
+    /**
+     * Get a Book with a specific ISBN
+     *
+     * @param isbn - The ISBN of the Book
+     * @return
+     */
     public Book getBook(String isbn) {
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {
@@ -41,10 +56,21 @@ public class Books implements Serializable {
         return null;
     }
     
+    /**
+     * Remove a specific book
+     *
+     * @param book - The Book to remove
+     */
     public void removeBook(Book book) {
         books.remove(book);
     }
     
+    /**
+     * Set the Book with a given ISBN
+     *
+     * @param isbn - The ISBN of the new Book
+     * @param newBook - The new Book to set
+     */
     public void setBook(String isbn, Book newBook) {
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {
@@ -53,6 +79,12 @@ public class Books implements Serializable {
         }
     }
     
+    /**
+     * Get a list of Books with a specific lister
+     *
+     * @param email - The email of the lister
+     * @return
+     */
     public ArrayList<Book> getBooksByLister(String email) {
         ArrayList<Book> matchingBooks = new ArrayList<>();
         for (Book book : books) {
@@ -63,7 +95,12 @@ public class Books implements Serializable {
         return matchingBooks;
     }
     
-    
+    /**
+     * Get a list of Books which have unreserved bookCopys
+     *
+     * @param reservations - The reservations object
+     * @return
+     */
     public ArrayList<Book> getUnreservedBooks(Reservations reservations) {
         ArrayList<Book> matchingBooks = new ArrayList<>();
         for (Book book : books) {
@@ -74,12 +111,29 @@ public class Books implements Serializable {
         return matchingBooks;
     }
 
+    /**
+     * Set the list of Books
+     *
+     * @param books - The Books object to add
+     */
     public void setBooks(ArrayList<Book> books) {
         this.books = books;
     }
+
+    /**
+     * Get the list of Books
+     *
+     * @return
+     */
     public ArrayList<Book> getBooks() {
         return books;
     }
+
+    /**
+     * Add a Book to the list of Books
+     *
+     * @param book - The book to add
+     */
     public void addBook(Book book) {
         books.add(book);
     }
