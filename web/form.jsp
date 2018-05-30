@@ -6,18 +6,18 @@
 <%@page import="cornflower.twf.model.Reservations"%>
 <%@page import="cornflower.twf.model.Books"%>
 <%@page import="cornflower.twf.utils.ActionController"%>
+
+<%@include file="layouts/baseData.jsp" %>
 <% 
-    String filter = request.getParameter("filter");
-    Lister currentUser = (Lister) session.getAttribute("lister");
-    ActionController ac = new ActionController(application);
-    Books books = ac.getBooks();
-    Reservations reservations = ac.getReservations();
-    
+    // Get the form to display
     String formTitle = request.getParameter("form").replaceAll("_", " ");
 %>
 <html>
+    <!--Get the HTML header-->
     <%@include file="layouts/header.jsp" %>
     <body style="background-color: #f2f2f2">
+        
+        <!--Display the navbar with the alert module below-->
         <%@include file="layouts/navbar.jsp" %>
         <%@include file="layouts/alert.jsp" %>
         <div style="margin-left: 5%; margin-right: 5%;">
@@ -26,6 +26,7 @@
                 <div class="col-md-6">
                     <h1 class="text-center" style="text-transform: capitalize;"><%= formTitle %></h1>
                     <br>
+                    <!--Display the appropriate form-->
                     <% if (formTitle.equalsIgnoreCase("login")) { %>
                         <%@include file="forms/login.jsp" %>
                     <% } else if (formTitle.equalsIgnoreCase("register")) { %>

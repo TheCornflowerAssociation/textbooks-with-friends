@@ -17,6 +17,7 @@
         </li>
         <%
             if (currentUser != null) {
+                // Display additional nav links
         %>
             <li class="nav-item">
                 <a class="nav-link" href="index.jsp?filter=myListings">My Listings</a>
@@ -29,6 +30,7 @@
     <ul class="navbar-nav ml-auto">
         <%
             if (currentUser != null) {
+                // Display their username and a logout button
         %>
             <li class="nav-item">
                 <a class="nav-link" href="#"><%= currentUser.getUsername() %></a>
@@ -40,6 +42,7 @@
                 </form>
             </li>
         <%  } else { %>
+            <!--Display login and register buttons-->
             <a class="btn btn-dark" href="form.jsp?form=login">Login</a>
             <a class="btn btn-dark" href="form.jsp?form=register">Register</a>
         <%  } %>

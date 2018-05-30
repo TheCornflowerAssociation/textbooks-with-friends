@@ -8,8 +8,10 @@
 <%@page import="cornflower.twf.utils.ActionController"%>
 <%@page import="cornflower.twf.model.Reservation"%>
 <% 
+    // Check if the reservation has already been made
     Reservation reservation = ac.getReservations().getReservation(request.getParameter("isbn"), Integer.parseInt(request.getParameter("copyId")));
     if (reservation != null) {
+        // Return the user to the homepage telling them that thier request could not be committed
         session.setAttribute("appMessage", new AppMessage("warning", "This book is already reserved for " + reservation.getName()));
         response.sendRedirect(request.getHeader("Referer"));
     }

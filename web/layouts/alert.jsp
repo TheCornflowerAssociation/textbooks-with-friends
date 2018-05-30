@@ -5,16 +5,16 @@
 --%>
 <%@page import="cornflower.twf.utils.AppMessage"%>
 <% 
+    // Get the app message from the session and display it
     AppMessage appMessage = (AppMessage) session.getAttribute("appMessage");
     if (appMessage != null) {
+        // Remove it from the session
         session.setAttribute("appMessage", null);
-        String alertMessage = appMessage.getMessage();
-        String alertType = appMessage.getType();
 %>
     <div class="container">
 
-        <div class="alert alert-<%= alertType %>" role="alert">
-            <%= alertMessage %>
+        <div class="alert alert-<%= appMessage.getType() %>" role="alert">
+            <%= appMessage.getMessage() %>
         </div>
     </div>
     <br>

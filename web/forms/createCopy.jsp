@@ -6,8 +6,8 @@
 
 <%@page import="cornflower.twf.model.Book"%>
 <%
+    // Get the book to run the form for via its ISBN
     String isbn = request.getParameter("isbn");
-    
     Book book = books.getBook(isbn);
 %>
 <h3 class="text-center">for <%= book.getTitle() %></h3>

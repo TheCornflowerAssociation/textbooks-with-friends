@@ -10,10 +10,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
 <% 
+    // Get the book
     Book book = books.getBook(request.getParameter("isbn"));
     
     if (book != null) {
         
+        // Filter the book copies
         ArrayList<BookCopy> copies;
         
         if (filter != null && filter.equals("myListings")) {
@@ -26,24 +28,28 @@
             copies = book.getBookCopies();
         }
         
+        // Set the displayed book to only show books for that filter
         book.setBookCopies(copies);
-%>
-<%
-    StringWriter bookXmlText = XmlFetcher.getBook(book);
+        
+        // Get the xml for the book using the fetcher
+        StringWriter bookXmlText = XmlFetcher.getBook(book);
 %>
 
-<c:set var = "bookXml">
-    <%= bookXmlText %>
-</c:set>
+    <!--Create an XML variable to pass with the XSL file-->
+    <c:set var = "bookXml">
+        <%= bookXmlText %>
+    </c:set>
 
-<c:import url="/WEB-INF/book.xsl" var="xslt"/>
-<x:transform xml="${bookXml}" xslt="${xslt}"/>
-<%
-    } else {
-%>
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title text-center">Select a book to view from the list</h4>
+    <!--Display the book as HTML using XSLT-->
+    <c:import url="/WEB-INF/book.xsl" var="xslt"/>
+    <x:transform xml="${bookXml}" xslt="${xslt}"/>
+    <%
+        } else {
+            // Display a message
+    %>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title text-center">Select a book to view from the list</h4>
+        </div>
     </div>
-</div>
 <% } %>

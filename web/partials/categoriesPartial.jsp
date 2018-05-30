@@ -4,8 +4,10 @@
     Author     : J-Mo
 --%>
 <% 
+    // Separate the categories by comma
     String categories[] = book.getCategory().trim().split(",");
-                
+    
+    // Display each of them as a badge
     for (String category : categories) {
 %>
     <span class="badge badge-primary"><%= category %></span>
