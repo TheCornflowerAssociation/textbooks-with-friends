@@ -17,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * A servlet class for the user object that services the /action/user route.
+ * 
  * @author J-Mo
  */
 @WebServlet("/action/user")
@@ -27,6 +28,14 @@ public class UserServlet extends javax.servlet.http.HttpServlet {
     ActionController ac;
     HttpSession session;
     
+    /**
+     * A helper method that sets up the fields before jumping into the request
+     * action. Also reroutes in the case of an exception.
+     * 
+     * @param request - the request object
+     * @param response - the response object
+     * @throws IOException - excepts null referrer status 
+     */
     private void setFields(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             ac = new ActionController(request.getServletContext());
@@ -39,16 +48,21 @@ public class UserServlet extends javax.servlet.http.HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Set the fields
         setFields(request, response);
         
+        // Get the users object
         Users users = ac.getUsers();
+        
+        // Create a new validator
         Validator v = new Validator();
 
+        // Get the fields
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Validation
+        // Perform validations
         boolean validationsFail = false;
 
         AppMessage usernameError = v.notEmpty(username);
@@ -75,18 +89,26 @@ public class UserServlet extends javax.servlet.http.HttpServlet {
         }
 
         if (validationsFail) {
+            // Return with the validation failure message
             response.sendRedirect(request.getHeader("Referer"));
-        } else {
+        } 
+        else {
+            // Create the new user
             Lister lister = new Lister(username, email, password);
             users.addUser(lister);
             try {
+                // Commit the data
                 ac.commitUserData(users);
             } catch (Exception ex) {
+                // Return with a failure message
                 session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
                 response.sendRedirect("../index.jsp");
             }
 
+            // Set the new user in the session
             session.setAttribute("lister", lister);
+            
+            // Redirect to home with a success message
             session.setAttribute("appMessage", new AppMessage("success", "Account created"));
             response.sendRedirect("../index.jsp");
         }

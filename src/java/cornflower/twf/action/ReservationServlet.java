@@ -5,10 +5,6 @@
  */
 package cornflower.twf.action;
 
-import cornflower.twf.model.Book;
-import cornflower.twf.model.BookCopy;
-import cornflower.twf.model.Books;
-import cornflower.twf.model.Lister;
 import cornflower.twf.model.Reservation;
 import cornflower.twf.model.Reservations;
 import cornflower.twf.utils.ActionController;
@@ -21,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * A servlet class for the reservation object that services the /action/reservation route.
+ * 
  * @author J-Mo
  */
 @WebServlet("/action/reservation")
@@ -31,6 +28,14 @@ public class ReservationServlet extends javax.servlet.http.HttpServlet {
     ActionController ac;
     HttpSession session;
     
+    /**
+     * A helper method that sets up the fields before jumping into the request
+     * action. Also reroutes in the case of an exception.
+     * 
+     * @param request - the request object
+     * @param response - the response object
+     * @throws IOException - excepts null referrer status 
+     */
     private void setFields(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             ac = new ActionController(request.getServletContext());
@@ -43,23 +48,22 @@ public class ReservationServlet extends javax.servlet.http.HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Set the fields up
         setFields(request, response);
         
-        String action = request.getParameter("action");
-        
+        // Get reservations
         Reservations reservations = ac.getReservations();
+        
+        // Create a validator
         Validator v = new Validator();
 
-
+        // Get the fields
         String isbn = request.getParameter("isbn");
-
-
         int copyId = Integer.parseInt(request.getParameter("copyId"));
-
         String name = request.getParameter("name");
         String email = request.getParameter("email");
 
-        // Validation
+        // Perform field validations
         boolean validationsFail = false;
 
         AppMessage nameError = v.validText(name, "name");
