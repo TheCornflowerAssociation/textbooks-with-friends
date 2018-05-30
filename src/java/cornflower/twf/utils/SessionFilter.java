@@ -19,31 +19,43 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * A Java EE filter class that intercepts incoming requests and filters them
+ * based on session data on the following routes:
+ * - /action/book/*
+ * - /action/copy/*
+ * 
  * @author J-Mo
  */
 @WebFilter(urlPatterns = { "/action/book/*", "/action/copy/*" })
 public class SessionFilter implements Filter {
     
+    // Fields
     Lister lister;
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {    
+        // Convert the requests and responses to HTTP based objects
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
+        
+        // Get the session object
         HttpSession session = request.getSession(true);
         
         try {
+            // Get the lister
             lister = (Lister) session.getAttribute("lister");
+            
+            if (lister != null) {
+                // Continue request path
+                chain.doFilter(request, response);
+            }
+            else {
+                // Reroute to failed session verification path
+                throw new Exception();
+            }
         }
         catch (Exception e) {
-            session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
-            response.sendRedirect("../form.jsp?form=login");
-        }
-
-        if (lister != null) {
-            chain.doFilter(request, response);
-        } else {
+            // Redirect and message the user
             session.setAttribute("appMessage", new AppMessage("warning", "You must be logged in to perform this action"));
             response.sendRedirect("../form.jsp?form=login");
         }
