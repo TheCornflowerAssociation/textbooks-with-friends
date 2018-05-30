@@ -36,6 +36,7 @@
                     <p>by <%= book.getAuthor() %></p>
                     <!--Show categories-->
                     <p><%@include file="categoriesPartial.jsp" %></p>
+                    <b style="font-size: 10pt">(<%= book.getBookCopies().size() %> copies listed total)</b>
                 </li>
             <% } %>
         </ul>
