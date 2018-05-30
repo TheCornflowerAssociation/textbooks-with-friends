@@ -4,11 +4,11 @@
     Author     : J-Mo
 --%>
 
-<%@page import="cornflower.twf.utils.XmlFetcher"%>
 <%@page import="java.io.StringWriter"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="cornflower.twf.model.BookCopy"%>
+<%@page import="cornflower.twf.utils.XmlParser"%>
 <% 
     // Get the book
     Book book = books.getBook(request.getParameter("isbn"));
@@ -31,8 +31,8 @@
         // Set the displayed book to only show books for that filter
         book.setBookCopies(copies);
         
-        // Get the xml for the book using the fetcher
-        StringWriter bookXmlText = XmlFetcher.getBook(book);
+        // Get the xml for the book using the parser
+        StringWriter bookXmlText = XmlParser.getBook(book);
 %>
 
     <!--Create an XML variable to pass with the XSL file-->

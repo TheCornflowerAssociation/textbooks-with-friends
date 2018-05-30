@@ -28,6 +28,51 @@ public interface TextbooksService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<cornflower.twf.soap.client.Book>
+     * @throws IOException_Exception
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "fetchBooks", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.FetchBooks")
+    @ResponseWrapper(localName = "fetchBooksResponse", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.FetchBooksResponse")
+    @Action(input = "http://soap.twf.cornflower/TextbooksService/fetchBooksRequest", output = "http://soap.twf.cornflower/TextbooksService/fetchBooksResponse", fault = {
+        @FaultAction(className = IOException_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/fetchBooks/Fault/IOException"),
+        @FaultAction(className = Exception_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/fetchBooks/Fault/Exception")
+    })
+    public List<Book> fetchBooks()
+        throws Exception_Exception, IOException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns boolean
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteBook", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.DeleteBook")
+    @ResponseWrapper(localName = "deleteBookResponse", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.DeleteBookResponse")
+    @Action(input = "http://soap.twf.cornflower/TextbooksService/deleteBookRequest", output = "http://soap.twf.cornflower/TextbooksService/deleteBookResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/deleteBook/Fault/Exception")
+    })
+    public boolean deleteBook(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2)
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
      * @param arg3
      * @param arg2
      * @param arg5
@@ -81,51 +126,6 @@ public interface TextbooksService {
         @WebParam(name = "arg11", targetNamespace = "")
         String arg11)
         throws Exception_Exception, IOException_Exception, JAXBException_Exception
-    ;
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<cornflower.twf.soap.client.Book>
-     * @throws IOException_Exception
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "fetchBooks", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.FetchBooks")
-    @ResponseWrapper(localName = "fetchBooksResponse", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.FetchBooksResponse")
-    @Action(input = "http://soap.twf.cornflower/TextbooksService/fetchBooksRequest", output = "http://soap.twf.cornflower/TextbooksService/fetchBooksResponse", fault = {
-        @FaultAction(className = IOException_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/fetchBooks/Fault/IOException"),
-        @FaultAction(className = Exception_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/fetchBooks/Fault/Exception")
-    })
-    public List<Book> fetchBooks()
-        throws Exception_Exception, IOException_Exception
-    ;
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns boolean
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "deleteBook", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.DeleteBook")
-    @ResponseWrapper(localName = "deleteBookResponse", targetNamespace = "http://soap.twf.cornflower/", className = "cornflower.twf.soap.client.DeleteBookResponse")
-    @Action(input = "http://soap.twf.cornflower/TextbooksService/deleteBookRequest", output = "http://soap.twf.cornflower/TextbooksService/deleteBookResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://soap.twf.cornflower/TextbooksService/deleteBook/Fault/Exception")
-    })
-    public boolean deleteBook(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2)
-        throws Exception_Exception
     ;
 
 }

@@ -11,7 +11,7 @@ package cornflower.twf.soap.client;
  */
 public class TextbooksServiceClient {
 
-    public static void main(String[] args) throws IOException_Exception, Exception_Exception, JAXBException_Exception {
+    public static void main(String[] args) throws Exception_Exception, IOException_Exception, JAXBException_Exception {
         TextbooksService_Service locator = new TextbooksService_Service();
         TextbooksService textbooksService = locator.getTextbooksServicePort();
 

@@ -29,6 +29,7 @@ public class ObjectFactory {
     private final static QName _JAXBException_QNAME = new QName("http://soap.twf.cornflower/", "JAXBException");
     private final static QName _Book_QNAME = new QName("http://soap.twf.cornflower/", "book");
     private final static QName _BookCopy_QNAME = new QName("http://soap.twf.cornflower/", "bookCopy");
+    private final static QName _Books_QNAME = new QName("http://soap.twf.cornflower/", "books");
     private final static QName _DeleteBook_QNAME = new QName("http://soap.twf.cornflower/", "deleteBook");
     private final static QName _DeleteBookResponse_QNAME = new QName("http://soap.twf.cornflower/", "deleteBookResponse");
     private final static QName _FetchBooks_QNAME = new QName("http://soap.twf.cornflower/", "fetchBooks");
@@ -81,6 +82,14 @@ public class ObjectFactory {
      */
     public BookCopy createBookCopy() {
         return new BookCopy();
+    }
+
+    /**
+     * Create an instance of {@link Books }
+     * 
+     */
+    public Books createBooks() {
+        return new Books();
     }
 
     /**
@@ -190,6 +199,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.twf.cornflower/", name = "bookCopy")
     public JAXBElement<BookCopy> createBookCopy(BookCopy value) {
         return new JAXBElement<BookCopy>(_BookCopy_QNAME, BookCopy.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Books }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.twf.cornflower/", name = "books")
+    public JAXBElement<Books> createBooks(Books value) {
+        return new JAXBElement<Books>(_Books_QNAME, Books.class, null, value);
     }
 
     /**

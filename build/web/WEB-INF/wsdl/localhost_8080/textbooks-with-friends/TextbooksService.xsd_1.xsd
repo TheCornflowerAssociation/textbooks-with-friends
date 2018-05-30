@@ -10,6 +10,8 @@
 
 <xs:element name="bookCopy" type="tns:bookCopy"/>
 
+<xs:element name="books" type="tns:books"/>
+
 <xs:element name="deleteBook" type="tns:deleteBook"/>
 
 <xs:element name="deleteBookResponse" type="tns:deleteBookResponse"/>
@@ -118,6 +120,12 @@
 <xs:element name="year" type="xs:int"/>
 <xs:element name="publisher" type="xs:string" minOccurs="0"/>
 <xs:element name="lister" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="books">
+<xs:sequence>
+<xs:element name="book" type="tns:book" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
