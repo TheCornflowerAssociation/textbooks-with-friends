@@ -71,7 +71,7 @@
                                 <xsl:value-of select="isbn"/>
                             </xsl:attribute>
                         </xsl:element>
-                        <button type="submit" name="submit" class="btn btn-danger">Remove Book</button>
+                        <button type="submit" name="submit" class="btn btn-danger">Prune Book</button>
                     </form>
                 </xsl:if>
             </div>

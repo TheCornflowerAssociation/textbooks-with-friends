@@ -17,8 +17,8 @@ public class Validator implements Serializable {
     
     private static Pattern emailPattern = Pattern.compile("^[A-Za-z\\._]+@[a-z\\-]+(\\.[a-z\\-]+)+$");
     private static Pattern yearPattern = Pattern.compile("^[0-9][0-9][0-9][0-9]$");
-    private static Pattern isbnPattern = Pattern.compile("^[0-9]{3}\\-[0-9]\\-[0-9]{2}\\-[0-9]{6}\\-[0-9]$");
-    private static Pattern textPattern = Pattern.compile("^[a-zA-Z ,]+$");
+    private static Pattern isbnPattern = Pattern.compile("^(?=(?:\\D*\\d){10}(?:(?:\\D*\\d){3})?$)[\\d-]+$");
+    private static Pattern textPattern = Pattern.compile("^[a-zA-Z ,.0-9\n&:;\"']+$");
     private static Pattern numberPattern = Pattern.compile("^\\d+$");
     private static Pattern emptyPattern = Pattern.compile("^.+$");
     

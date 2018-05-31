@@ -85,7 +85,7 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
         
         if (book.getBookCopiesAmount() > 0) {
             // Redirect if there are still book copies owned by the book
-            session.setAttribute("appMessage", new AppMessage("warning", "Cannot remove books with active copy listings"));
+            session.setAttribute("appMessage", new AppMessage("warning", "Cannot prune books with active copy listings"));
             response.sendRedirect(request.getHeader("Referer"));
         }
         else {
@@ -169,20 +169,27 @@ public class BookServlet extends javax.servlet.http.HttpServlet {
             // Return the validation failure message to the user
             response.sendRedirect(request.getHeader("Referer"));
         } else {
-            // Create and commit the book
-            Book book = new Book(isbn, title, author, description, category);
-            books.addBook(book);
-            try {
-                ac.commitBookData(books);
-            } catch (Exception ex) {
-                // Message the user about bad commit
-                session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
+            if (books.getBook(isbn) != null) {
+                // Return success message to the user
+                session.setAttribute("appMessage", new AppMessage("danger", "Book with ISBN \"" + isbn + "\" is already listed"));
+                response.sendRedirect(request.getHeader("Referer"));
+            }
+            else {
+                // Create and commit the book
+                Book book = new Book(isbn, title, author, description, category);
+                books.addBook(book);
+                try {
+                    ac.commitBookData(books);
+                } catch (Exception ex) {
+                    // Message the user about bad commit
+                    session.setAttribute("appMessage", new AppMessage("danger", "Something went wrong while committing your data"));
+                    response.sendRedirect("../index.jsp");
+                }
+
+                // Return success message to the user
+                session.setAttribute("appMessage", new AppMessage("success", "Added new book \"" + title + "\""));
                 response.sendRedirect("../index.jsp");
             }
-            
-            // Return success message to the user
-            session.setAttribute("appMessage", new AppMessage("success", "Added new book \"" + title + "\""));
-            response.sendRedirect("../index.jsp");
         }
     }
 }

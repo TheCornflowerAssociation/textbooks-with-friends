@@ -97,7 +97,7 @@ public class ReservationServlet extends javax.servlet.http.HttpServlet {
                 response.sendRedirect(request.getHeader("Referer"));
             }
             session.setAttribute("appMessage", new AppMessage("success", "Successfully reserved book"));
-            response.sendRedirect(request.getHeader("Referer"));
+            response.sendRedirect("../index.jsp");
         }
     }
 }
